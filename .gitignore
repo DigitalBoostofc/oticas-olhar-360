@@ -1,0 +1,11 @@
+design-package/
+.claude/
+*.tar.gz
+*.bin
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
+.env
+.env.local

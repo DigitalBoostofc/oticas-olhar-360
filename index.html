@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Óticas Olhar 360° — Diagnóstico Visual Gratuito em Camocim</title>
+<meta name="description" content="Faça o Diagnóstico 360° de 30 segundos e descubra se seus olhos precisam de ajuda. Exame grátis + óculos de sol com grau de brinde. Atendimento em Camocim - CE." />
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          solar:    '#F5B41A',
+          solarSoft:'#FFE7A8',
+          petroleo: '#3D5B7A',
+          petroDark:'#2A405A',
+          teal360:  '#3FA9B9',
+          tealSoft: '#D8F0F4',
+          graybg:   '#F8F9FA',
+          inkSoft:  '#5B6B7E',
+        },
+        fontFamily: {
+          display: ['Montserrat', 'Inter', 'sans-serif'],
+          body:    ['Inter', 'system-ui', 'sans-serif'],
+        },
+        boxShadow: {
+          'cta':     '0 10px 30px -8px rgba(245,180,26,.55), 0 4px 12px -2px rgba(245,180,26,.35)',
+          'card':    '0 4px 24px -8px rgba(61,91,122,.18), 0 2px 6px -2px rgba(61,91,122,.10)',
+          'cardHi':  '0 18px 50px -10px rgba(61,91,122,.30), 0 6px 18px -6px rgba(61,91,122,.18)',
+          'phone':   '0 30px 60px -20px rgba(61,91,122,.45), 0 14px 28px -10px rgba(63,169,185,.30)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #1f2a37;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3,.font-display { font-family: 'Montserrat', 'Inter', sans-serif; letter-spacing:-0.02em; }
+
+  /* CTA pulse */
+  @keyframes ctaPulse {
+    0%,100% { box-shadow: 0 10px 30px -8px rgba(245,180,26,.55), 0 0 0 0 rgba(245,180,26,.55); }
+    50%     { box-shadow: 0 10px 30px -8px rgba(245,180,26,.55), 0 0 0 14px rgba(245,180,26,0); }
+  }
+  .cta-pulse { animation: ctaPulse 2.4s ease-out infinite; }
+
+  /* Floating decorative blobs */
+  @keyframes floaty {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50%     { transform: translateY(-14px) rotate(6deg); }
+  }
+  .float-slow { animation: floaty 6s ease-in-out infinite; }
+  .float-fast { animation: floaty 4s ease-in-out infinite; }
+
+  /* Reveal on scroll */
+  .reveal { opacity:0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity:1; transform: translateY(0); }
+
+  /* Hero gradient background */
+  .hero-bg {
+    background:
+      radial-gradient(1200px 600px at 100% 0%, #D8F0F4 0%, rgba(216,240,244,0) 60%),
+      radial-gradient(800px 500px at 0% 100%, #FFF6DC 0%, rgba(255,246,220,0) 60%),
+      #ffffff;
+  }
+
+  /* Petroleo background w/ subtle texture */
+  .petro-bg {
+    background:
+      radial-gradient(900px 500px at 90% 10%, rgba(63,169,185,.25) 0%, rgba(63,169,185,0) 60%),
+      radial-gradient(700px 400px at 10% 90%, rgba(245,180,26,.18) 0%, rgba(245,180,26,0) 60%),
+      #3D5B7A;
+  }
+
+  /* Offer gradient */
+  .offer-bg {
+    background: linear-gradient(180deg, #FFF1C2 0%, #FFFAE6 40%, #FFFFFF 100%);
+  }
+
+  /* Phone frame */
+  .phone-shell {
+    border-radius: 44px;
+    background: linear-gradient(180deg, #1a2533 0%, #2A405A 100%);
+    padding: 12px;
+  }
+  .phone-screen {
+    border-radius: 32px;
+    background: #fff;
+    overflow: hidden;
+    height: 560px;
+    width: 280px;
+    position: relative;
+  }
+  .phone-notch {
+    position:absolute; top:8px; left:50%; transform:translateX(-50%);
+    width: 90px; height: 22px; background:#1a2533; border-radius: 12px; z-index: 5;
+  }
+
+  /* Quiz progress segments */
+  .seg { height: 4px; flex:1; border-radius: 999px; background:#E9EDF2; }
+  .seg.on { background:#F5B41A; }
+
+  /* Accordion */
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .acc-icon { transform: rotate(45deg); }
+  .acc-icon { transition: transform .25s ease; }
+
+  /* Mobile menu transition */
+  .mm { max-height:0; overflow:hidden; transition: max-height .35s ease; }
+  .mm.open { max-height: 320px; }
+
+  /* Quiz modal */
+  .modal-backdrop { background: rgba(20,30,45,.7); backdrop-filter: blur(6px); }
+  .opt-btn { transition: all .18s ease; }
+  .opt-btn:hover { transform: translateY(-2px); }
+
+  /* Selected option ring */
+  .opt-btn.sel { outline: 3px solid #F5B41A; outline-offset: 2px; }
+
+  /* Stat number */
+  .stat-num { font-family:'Montserrat'; font-weight:900; color:#F5B41A; line-height:1; letter-spacing:-0.04em; }
+
+  /* Underline marker */
+  .mark-yellow {
+    background: linear-gradient(180deg, transparent 60%, rgba(245,180,26,.55) 60%);
+    padding: 0 2px;
+  }
+
+  /* Star color */
+  .star { color: #F5B41A; }
+
+  /* WhatsApp float */
+  .wa-float { box-shadow: 0 14px 30px -8px rgba(37,211,102,.6), 0 4px 10px rgba(0,0,0,.15); }
+
+  /* Logo */
+  .logo-img { display:block; height: 64px; width:auto; }
+  .logo-img-sm { display:block; height: 48px; width:auto; }
+  .logo-img-xs { display:block; height: 36px; width:auto; }
+  .logo-img-lg { display:block; height: 88px; width:auto; }
+  /* Footer logo: invert dark navy text to white using filter on dark bg */
+  .logo-img-light {
+    /* Use a soft white drop on dark BG via mix-blend; keep teal/yellow legible */
+    filter: brightness(0) invert(1) opacity(.92);
+  }
+
+  /* No-scroll when modal open */
+  body.locked { overflow: hidden; }
+
+  /* Selected card pop */
+  .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -12px rgba(61,91,122,.22); }
+
+  /* Subtle striping */
+  .stripes {
+    background-image: repeating-linear-gradient(135deg, rgba(63,169,185,.08) 0 8px, transparent 8px 18px);
+  }
+
+  /* Result bar */
+  .bar-track { height:8px; background:#E9EDF2; border-radius:999px; overflow:hidden; }
+  .bar-fill  { height:100%; background:linear-gradient(90deg,#3FA9B9,#F5B41A); }
+
+</style>
+</head>
+
+<body class="font-body text-slate-800">
+
+<!-- ====================================================== -->
+<!-- HEADER                                                  -->
+<!-- ====================================================== -->
+<header id="topo" class="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm">
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#topo" class="flex items-center gap-3" aria-label="Óticas Olhar 360°">
+      <img src="assets/logo-olhar360.png" alt="Óticas Olhar 360°" class="logo-img" style="width: 200px; height: 200px" />
+      <span class="hidden lg:block text-[10px] tracking-[0.2em] uppercase text-inkSoft font-semibold border-l border-slate-200 pl-3">Camocim · CE</span>
+    </a>
+
+    <!-- Right -->
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#problema" class="text-sm font-medium text-petroleo hover:text-teal360 transition">Sintomas</a>
+      <a href="#oferta"   class="text-sm font-medium text-petroleo hover:text-teal360 transition">Oferta</a>
+      <a href="#faq"      class="text-sm font-medium text-petroleo hover:text-teal360 transition">FAQ</a>
+      <a href="https://wa.me/5588992742862" class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-petroleo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="text-emerald-500"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.671 5.494l-.999 3.648 3.817-1.001z"/></svg>
+        (88) 99274-2862
+      </a>
+      <button onclick="openQuiz()" class="bg-solar text-petroleo font-bold text-sm px-5 py-2.5 rounded-full hover:brightness-105 transition shadow-md">
+        Fazer Diagnóstico
+      </button>
+    </div>
+
+    <!-- Mobile burger -->
+    <button id="burger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menu">
+      <span class="block w-6 h-0.5 bg-petroleo"></span>
+      <span class="block w-6 h-0.5 bg-petroleo"></span>
+      <span class="block w-6 h-0.5 bg-petroleo"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mm" class="mm md:hidden bg-white border-t border-slate-100">
+    <div class="px-5 py-4 flex flex-col gap-3">
+      <a href="#problema" class="text-petroleo font-medium">Sintomas</a>
+      <a href="#oferta"   class="text-petroleo font-medium">Oferta</a>
+      <a href="#faq"      class="text-petroleo font-medium">FAQ</a>
+      <a href="https://wa.me/5588992742862" class="text-petroleo font-medium">WhatsApp (88) 99274-2862</a>
+      <button onclick="openQuiz()" class="bg-solar text-petroleo font-bold py-3 rounded-full mt-2">
+        🟡 Fazer Diagnóstico
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ====================================================== -->
+<!-- HERO                                                    -->
+<!-- ====================================================== -->
+<section class="hero-bg pt-28 pb-16 lg:pt-36 lg:pb-24 relative overflow-hidden">
+  <!-- floating decorations -->
+  <div class="hidden md:block absolute top-32 left-12 w-16 h-16 rounded-full bg-teal360/20 float-slow"></div>
+  <div class="hidden md:block absolute bottom-20 left-1/3 w-10 h-10 rounded-full bg-solar/30 float-fast"></div>
+  <div class="hidden md:block absolute top-44 right-10 text-solar text-5xl float-slow font-black">✱</div>
+
+  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+    <!-- Left -->
+    <div class="reveal">
+      <span class="inline-flex items-center gap-2 bg-tealSoft text-petroleo text-xs lg:text-sm font-bold tracking-wider uppercase px-4 py-2 rounded-full">
+        ✨ Diagnóstico Gratuito · 30 segundos
+      </span>
+
+      <h1 class="font-display font-black text-petroleo text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] mt-6">
+        A maioria das pessoas em <span class="text-teal360">Camocim</span> está
+        <span class="mark-yellow">forçando a vista</span> todos os dias —
+        e descobre tarde demais.
+      </h1>
+
+      <p class="text-lg lg:text-xl text-inkSoft mt-6 leading-relaxed max-w-xl">
+        Faça o <strong class="text-petroleo">Diagnóstico 360°</strong> de 30 segundos e descubra,
+        em 6 perguntas simples, se seus olhos estão silenciosamente pedindo socorro.
+      </p>
+
+      <button onclick="openQuiz()" class="cta-pulse mt-8 inline-flex items-center gap-3 bg-solar text-petroleo font-display font-extrabold text-base lg:text-lg px-7 py-5 rounded-2xl shadow-cta hover:brightness-105 transition">
+        🟡 QUERO MEU DIAGNÓSTICO 360° AGORA
+        <span class="text-2xl leading-none">→</span>
+      </button>
+
+      <!-- Trust line -->
+      <div class="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-inkSoft">
+        <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg> Análise gratuita</span>
+        <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg> 100% online</span>
+        <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg> Resultado na hora</span>
+      </div>
+
+      <!-- Social count -->
+      <div class="mt-5 flex items-center gap-3">
+        <div class="flex -space-x-2">
+          <div class="w-8 h-8 rounded-full bg-teal360 border-2 border-white flex items-center justify-center text-white text-xs font-bold">M</div>
+          <div class="w-8 h-8 rounded-full bg-solar border-2 border-white flex items-center justify-center text-petroleo text-xs font-bold">C</div>
+          <div class="w-8 h-8 rounded-full bg-petroleo border-2 border-white flex items-center justify-center text-white text-xs font-bold">J</div>
+          <div class="w-8 h-8 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center text-petroleo text-xs font-bold">+</div>
+        </div>
+        <p class="text-xs lg:text-sm text-slate-500"><strong class="text-petroleo">+1.847 pessoas</strong> em Camocim já fizeram esta semana</p>
+      </div>
+    </div>
+
+    <!-- Right — phone mockup -->
+    <div class="reveal flex justify-center lg:justify-end relative">
+      <div class="relative">
+        <!-- decorative ring -->
+        <div class="absolute -top-8 -right-8 w-24 h-24 rounded-full border-4 border-dashed border-teal360/40 float-slow"></div>
+        <div class="absolute -bottom-6 -left-10 w-16 h-16 rounded-full bg-solar/30 float-fast"></div>
+        <div class="absolute top-1/2 -left-12 text-teal360 text-4xl font-black float-slow">✱</div>
+
+        <div class="phone-shell shadow-phone">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <!-- Inner quiz preview -->
+            <div class="px-5 pt-12 pb-5 h-full flex flex-col">
+              <!-- Mini logo -->
+              <div class="flex items-center mb-3">
+                <img src="assets/logo-olhar360.png" alt="Óticas Olhar 360°" class="logo-img-xs" style="width: 6px; height: 65px" />
+              </div>
+              <!-- progress -->
+              <div class="flex gap-1 mb-4">
+                <div class="seg on"></div>
+                <div class="seg"></div><div class="seg"></div>
+                <div class="seg"></div><div class="seg"></div><div class="seg"></div>
+              </div>
+              <p class="text-[11px] tracking-widest font-bold text-teal360 uppercase">Pergunta 1 de 6</p>
+              <h3 class="font-display font-extrabold text-petroleo text-[20px] leading-tight mt-2">
+                Você sente cansaço nos olhos no fim do dia?
+              </h3>
+
+              <div class="mt-4 space-y-2.5 flex-1">
+                <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-emerald-200 bg-emerald-50">
+                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                  <span class="text-[13px] font-semibold text-petroleo">Quase nunca</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-amber-200 bg-amber-50">
+                  <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                  <span class="text-[13px] font-semibold text-petroleo">Às vezes</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-orange-300 bg-orange-50">
+                  <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+                  <span class="text-[13px] font-semibold text-petroleo">Quase todo dia</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-rose-300 bg-rose-50">
+                  <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                  <span class="text-[13px] font-semibold text-petroleo">Todo dia, forte</span>
+                </div>
+              </div>
+
+              <button class="w-full mt-3 bg-solar text-petroleo font-display font-extrabold py-3 rounded-xl text-sm">
+                Continuar →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- SECTION 3 — PROBLEM IDENTIFICATION                      -->
+<!-- ====================================================== -->
+<section id="problema" class="py-20 lg:py-28 bg-white">
+  <div class="max-w-5xl mx-auto px-5 lg:px-8 text-center">
+    <h2 class="reveal font-display font-extrabold text-petroleo text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      Você se reconhece em <span class="text-teal360">algum desses sinais?</span>
+    </h2>
+    <p class="reveal text-inkSoft text-lg mt-4 max-w-2xl mx-auto">
+      Sintomas pequenos que, somados, são o aviso silencioso de que sua visão está pedindo atenção.
+    </p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 text-left">
+      <!-- card -->
+      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">👁️</div>
+        <p class="font-display font-bold text-petroleo text-lg leading-snug">Olhos pesados, ardendo ou lacrimejando no fim do dia</p>
+      </div>
+      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">📱</div>
+        <p class="font-display font-bold text-petroleo text-lg leading-snug">Mais de 4 horas por dia em telas</p>
+      </div>
+      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">🤕</div>
+        <p class="font-display font-bold text-petroleo text-lg leading-snug">Dores de cabeça frequentes sem explicação</p>
+      </div>
+      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">🔍</div>
+        <p class="font-display font-bold text-petroleo text-lg leading-snug">Aperta os olhos pra ler placas e mensagens</p>
+      </div>
+      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">😴</div>
+        <p class="font-display font-bold text-petroleo text-lg leading-snug">Acorda com a vista cansada</p>
+      </div>
+      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">📅</div>
+        <p class="font-display font-bold text-petroleo text-lg leading-snug">Mais de 2 anos sem fazer exame de vista</p>
+      </div>
+    </div>
+
+    <!-- Alert box -->
+    <div class="reveal mt-10 bg-petroleo text-white rounded-2xl p-6 lg:p-8 flex items-start gap-4 text-left shadow-cardHi">
+      <span class="text-3xl">⚠️</span>
+      <p class="text-base lg:text-lg leading-relaxed">
+        <strong class="text-solar">Marcou 2 ou mais?</strong> Sua visão está dando um aviso silencioso.
+        E quando o aviso vira sintoma, o estrago pode já estar feito.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- SECTION 4 — INCONVENIENT TRUTH                          -->
+<!-- ====================================================== -->
+<section class="py-20 lg:py-28 bg-graybg">
+  <div class="max-w-5xl mx-auto px-5 lg:px-8 text-center">
+    <h2 class="reveal font-display font-extrabold text-petroleo text-3xl sm:text-4xl lg:text-[44px] leading-tight max-w-3xl mx-auto">
+      A maioria das pessoas só vai ao oftalmologista quando <span class="text-teal360">já não enxerga.</span>
+    </h2>
+    <p class="reveal text-inkSoft text-lg lg:text-xl mt-6 max-w-2xl mx-auto leading-relaxed">
+      O olho humano é um órgão que se <strong class="text-petroleo">ADAPTA</strong>. Ele compensa, força, ajusta —
+      até que um dia simplesmente para de compensar. Quando isso acontece,
+      boa parte dos danos não tem mais como reverter.
+    </p>
+
+    <!-- Stats -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
+      <div class="reveal text-left">
+        <div class="stat-num text-6xl">70%</div>
+        <p class="text-inkSoft text-sm mt-3 leading-snug">das pessoas têm algum erro refrativo <strong class="text-petroleo">não corrigido</strong></p>
+      </div>
+      <div class="reveal text-left">
+        <div class="stat-num text-6xl">+8h</div>
+        <p class="text-inkSoft text-sm mt-3 leading-snug">por dia é o tempo médio em telas no <strong class="text-petroleo">Brasil</strong></p>
+      </div>
+      <div class="reveal text-left">
+        <div class="stat-num text-6xl">2 anos</div>
+        <p class="text-inkSoft text-sm mt-3 leading-snug">tempo médio que se <strong class="text-petroleo">adia</strong> o exame de vista</p>
+      </div>
+      <div class="reveal text-left">
+        <div class="stat-num text-6xl">85%</div>
+        <p class="text-inkSoft text-sm mt-3 leading-snug">dos casos têm <strong class="text-petroleo">solução simples</strong> se detectados cedo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- SECTION 5 — SOLUTION (quiz pitch)                       -->
+<!-- ====================================================== -->
+<section class="petro-bg py-20 lg:py-28 text-white relative overflow-hidden">
+  <div class="absolute top-10 right-10 text-solar text-6xl font-black float-slow opacity-50">✱</div>
+  <div class="absolute bottom-12 left-10 w-20 h-20 rounded-full border-4 border-teal360/40 float-fast"></div>
+
+  <div class="max-w-4xl mx-auto px-5 lg:px-8 text-center">
+    <span class="reveal inline-flex items-center gap-2 bg-solar text-petroleo text-xs lg:text-sm font-extrabold tracking-wider uppercase px-4 py-2 rounded-full">
+      🎯 Exclusivo Óticas Olhar 360°
+    </span>
+
+    <h2 class="reveal font-display font-black text-white text-3xl sm:text-4xl lg:text-[56px] leading-[1.05] mt-6">
+      Diagnóstico 360°<br/>em <span class="text-solar">30 segundos</span>
+    </h2>
+    <p class="reveal text-white/70 text-lg lg:text-xl mt-5 max-w-2xl mx-auto leading-relaxed">
+      6 perguntas. Resultado personalizado. E uma surpresa pra quem se encaixa em
+      um dos perfis de risco.
+    </p>
+
+    <!-- bullets -->
+    <div class="grid sm:grid-cols-2 gap-5 mt-12 text-left max-w-3xl mx-auto">
+      <div class="reveal flex items-start gap-3 p-5 rounded-2xl bg-white/5 border border-white/10">
+        <span class="text-solar text-2xl leading-none mt-0.5">✓</span>
+        <p class="text-white text-base lg:text-lg">Em qual dos <strong>3 perfis de risco</strong> você se encaixa</p>
+      </div>
+      <div class="reveal flex items-start gap-3 p-5 rounded-2xl bg-white/5 border border-white/10">
+        <span class="text-solar text-2xl leading-none mt-0.5">✓</span>
+        <p class="text-white text-base lg:text-lg">Quais sinais do seu dia indicam <strong>fadiga visual</strong></p>
+      </div>
+      <div class="reveal flex items-start gap-3 p-5 rounded-2xl bg-white/5 border border-white/10">
+        <span class="text-solar text-2xl leading-none mt-0.5">✓</span>
+        <p class="text-white text-base lg:text-lg">O que fazer <strong>AGORA</strong> pra evitar problemas maiores</p>
+      </div>
+      <div class="reveal flex items-start gap-3 p-5 rounded-2xl bg-white/5 border border-white/10">
+        <span class="text-solar text-2xl leading-none mt-0.5">✓</span>
+        <p class="text-white text-base lg:text-lg">Liberação do <strong class="text-solar">EXAME GRÁTIS + ÓCULOS DE SOL DE BRINDE</strong></p>
+      </div>
+    </div>
+
+    <button onclick="openQuiz()" class="cta-pulse mt-12 inline-flex items-center gap-3 bg-solar text-petroleo font-display font-extrabold text-base lg:text-lg px-8 py-5 rounded-2xl shadow-cta">
+      🟡 COMEÇAR MEU DIAGNÓSTICO 360° GRATUITO
+      <span class="text-2xl leading-none">→</span>
+    </button>
+    <p class="reveal text-white/60 text-sm mt-4">30 segundos · Resultado imediato · Sem compromisso</p>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- SECTION 6 — SOCIAL PROOF                                -->
+<!-- ====================================================== -->
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="reveal font-display font-extrabold text-petroleo text-3xl sm:text-4xl lg:text-5xl leading-tight">
+        <span class="text-teal360">+1.800 pessoas</span> em Camocim já confiaram na Olhar 360°
+      </h2>
+      <p class="reveal text-inkSoft text-lg mt-4">Histórias reais de quem fez o diagnóstico e mudou a forma de enxergar o dia a dia.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-14">
+      <!-- Testimonial 1 -->
+      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-7">
+        <div class="flex gap-1 star text-lg">★★★★★</div>
+        <p class="text-petroleo text-base mt-4 italic leading-relaxed">
+          "Achei que era só cansaço de trabalho. Fiz o teste, fui na ótica e descobri que precisava
+          de óculos pra perto. As dores de cabeça sumiram em uma semana."
+        </p>
+        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-slate-100">
+          <div class="w-12 h-12 rounded-full bg-teal360 flex items-center justify-center text-white font-display font-extrabold">M</div>
+          <div>
+            <p class="font-display font-bold text-petroleo">Maria L.</p>
+            <p class="text-xs text-slate-500">38 anos · Camocim</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-7">
+        <div class="flex gap-1 star text-lg">★★★★★</div>
+        <p class="text-petroleo text-base mt-4 italic leading-relaxed">
+          "Meu pai tem 67 e jurava que enxergava bem. Fiz ele responder o quiz no meu celular.
+          Resultado: alto risco. Hoje usa multifocal e voltou a ler o jornal."
+        </p>
+        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-slate-100">
+          <div class="w-12 h-12 rounded-full bg-solar flex items-center justify-center text-petroleo font-display font-extrabold">C</div>
+          <div>
+            <p class="font-display font-bold text-petroleo">Carlos R.</p>
+            <p class="text-xs text-slate-500">41 anos · Camocim</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-7">
+        <div class="flex gap-1 star text-lg">★★★★★</div>
+        <p class="text-petroleo text-base mt-4 italic leading-relaxed">
+          "O óculos de sol com grau de brinde me convenceu. Mas o atendimento da Olhar 360°
+          fez eu virar cliente fixa."
+        </p>
+        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-slate-100">
+          <div class="w-12 h-12 rounded-full bg-petroleo flex items-center justify-center text-white font-display font-extrabold">J</div>
+          <div>
+            <p class="font-display font-bold text-petroleo">Juliana M.</p>
+            <p class="text-xs text-slate-500">29 anos · Camocim</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- SECTION 7 — OFFER                                       -->
+<!-- ====================================================== -->
+<section id="oferta" class="offer-bg py-20 lg:py-28 relative overflow-hidden">
+  <div class="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-solar/30 blur-2xl"></div>
+  <div class="absolute -bottom-10 right-0 w-56 h-56 rounded-full bg-teal360/20 blur-2xl"></div>
+
+  <div class="max-w-4xl mx-auto px-5 lg:px-8 relative">
+    <!-- Card -->
+    <div class="reveal bg-white rounded-3xl shadow-cardHi border border-solar/30 p-8 lg:p-12">
+      <div class="flex flex-col items-center text-center">
+        <span class="inline-flex items-center gap-2 bg-petroleo text-solar text-xs lg:text-sm font-extrabold tracking-wider uppercase px-4 py-2 rounded-full">
+          🎁 Oferta exclusiva ao completar o quiz
+        </span>
+        <h2 class="font-display font-black text-petroleo text-3xl sm:text-4xl lg:text-5xl leading-[1.05] mt-6 max-w-3xl">
+          Exame 360° <span class="text-solar">GRÁTIS</span> + Óculos de Sol com Grau de <span class="mark-yellow">PRESENTE</span>
+        </h2>
+      </div>
+
+      <!-- Value stack -->
+      <div class="mt-10 bg-graybg rounded-2xl p-6 lg:p-8 border border-slate-100">
+        <ul class="divide-y divide-slate-200">
+          <li class="flex items-center justify-between py-3 gap-4">
+            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Exame de vista completo</span>
+            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 200</span>
+          </li>
+          <li class="flex items-center justify-between py-3 gap-4">
+            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Óculos de sol com grau (na compra)</span>
+            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 600</span>
+          </li>
+          <li class="flex items-center justify-between py-3 gap-4">
+            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Avaliação de fadiga visual digital</span>
+            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 150</span>
+          </li>
+          <li class="flex items-center justify-between py-3 gap-4">
+            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Indicação personalizada de armação</span>
+            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 100</span>
+          </li>
+          <li class="flex items-center justify-between py-3 gap-4">
+            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Garantia total de adaptação</span>
+            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 200</span>
+          </li>
+          <li class="flex items-center justify-between py-3 gap-4">
+            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Atendimento prioritário sem fila</span>
+            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 80</span>
+          </li>
+          <li class="flex items-center justify-between py-3 gap-4">
+            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Pós-venda com manutenção 12 meses</span>
+            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 120</span>
+          </li>
+        </ul>
+
+        <div class="mt-5 pt-5 border-t-2 border-dashed border-petroleo/20 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-display font-bold text-petroleo text-base">Valor total do pacote</span>
+            <span class="font-display font-extrabold text-petroleo text-xl line-through opacity-60">R$ 1.450</span>
+          </div>
+          <div class="flex items-center justify-between bg-solar/20 rounded-xl px-4 py-3 mt-2">
+            <span class="font-display font-extrabold text-petroleo text-lg">Seu investimento pelo exame</span>
+            <span class="font-display font-black text-petroleo text-3xl lg:text-4xl">R$ 0</span>
+          </div>
+          <p class="text-xs text-inkSoft text-right pt-1">(Você só paga se decidir levar o óculos principal)</p>
+        </div>
+      </div>
+
+      <!-- Local seal -->
+      <div class="mt-8 bg-petroleo rounded-2xl p-5 flex items-center gap-4">
+        <span class="w-12 h-12 rounded-full bg-solar flex items-center justify-center text-petroleo text-2xl flex-shrink-0">📍</span>
+        <p class="text-solar font-display font-bold text-base lg:text-lg leading-snug">
+          Atendimento aqui mesmo em Camocim — sem precisar viajar
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 text-center">
+        <button onclick="openQuiz()" class="cta-pulse w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-solar text-petroleo font-display font-extrabold text-base lg:text-xl px-8 py-6 rounded-2xl shadow-cta">
+          🟡 FAZER MEU DIAGNÓSTICO E LIBERAR MINHA OFERTA
+          <span class="text-2xl leading-none">→</span>
+        </button>
+        <p class="mt-5 inline-flex items-center gap-2 text-rose-600 font-bold text-sm bg-rose-50 px-4 py-2 rounded-full">
+          ⏰ Apenas 50 vagas para exame gratuito esta semana
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- SECTION 8 — FAQ                                         -->
+<!-- ====================================================== -->
+<section id="faq" class="py-20 lg:py-28 bg-graybg">
+  <div class="max-w-3xl mx-auto px-5 lg:px-8">
+    <h2 class="reveal text-center font-display font-extrabold text-petroleo text-3xl sm:text-4xl lg:text-5xl leading-tight">
+      Ainda em dúvida? <span class="text-teal360">Pega aqui:</span>
+    </h2>
+
+    <div class="mt-12 space-y-3">
+      <details class="reveal group bg-white rounded-2xl border border-slate-100 shadow-card overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 lg:p-6">
+          <span class="font-display font-bold text-petroleo text-base lg:text-lg pr-4">E se eu não precisar de óculos?</span>
+          <span class="acc-icon w-9 h-9 rounded-full bg-tealSoft text-teal360 flex items-center justify-center text-2xl font-bold flex-shrink-0">+</span>
+        </summary>
+        <div class="px-5 lg:px-6 pb-6 text-inkSoft leading-relaxed">
+          Melhor ainda. O exame confirma se sua visão está saudável e você sai com a certeza
+          tranquila — sem custo nenhum. Se precisar, a gente já indica a melhor solução na hora.
+        </div>
+      </details>
+
+      <details class="reveal group bg-white rounded-2xl border border-slate-100 shadow-card overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 lg:p-6">
+          <span class="font-display font-bold text-petroleo text-base lg:text-lg pr-4">E se eu já uso óculos?</span>
+          <span class="acc-icon w-9 h-9 rounded-full bg-tealSoft text-teal360 flex items-center justify-center text-2xl font-bold flex-shrink-0">+</span>
+        </summary>
+        <div class="px-5 lg:px-6 pb-6 text-inkSoft leading-relaxed">
+          O grau muda com o tempo. Recomendamos refazer o exame a cada 12 meses. Se sua receita
+          ainda estiver válida, você ganha o brinde mesmo assim ao adquirir um novo óculos.
+        </div>
+      </details>
+
+      <details class="reveal group bg-white rounded-2xl border border-slate-100 shadow-card overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 lg:p-6">
+          <span class="font-display font-bold text-petroleo text-base lg:text-lg pr-4">Quanto tempo demora o exame?</span>
+          <span class="acc-icon w-9 h-9 rounded-full bg-tealSoft text-teal360 flex items-center justify-center text-2xl font-bold flex-shrink-0">+</span>
+        </summary>
+        <div class="px-5 lg:px-6 pb-6 text-inkSoft leading-relaxed">
+          Em média, <strong class="text-petroleo">25 a 35 minutos</strong>. Equipamento moderno,
+          atendimento sem pressa e sem fila — agendamento prioritário pra quem completa o quiz.
+        </div>
+      </details>
+
+      <details class="reveal group bg-white rounded-2xl border border-slate-100 shadow-card overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 p-5 lg:p-6">
+          <span class="font-display font-bold text-petroleo text-base lg:text-lg pr-4">É realmente grátis ou tem pegadinha?</span>
+          <span class="acc-icon w-9 h-9 rounded-full bg-tealSoft text-teal360 flex items-center justify-center text-2xl font-bold flex-shrink-0">+</span>
+        </summary>
+        <div class="px-5 lg:px-6 pb-6 text-inkSoft leading-relaxed">
+          É grátis de verdade. O exame é cortesia. Você só investe se decidir levar o óculos
+          principal — e nesse caso, ganha o óculos de sol com grau como brinde. Sem letras miúdas.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- SECTION 9 — FINAL CTA                                   -->
+<!-- ====================================================== -->
+<section class="petro-bg py-20 lg:py-32 text-white relative overflow-hidden">
+  <div class="absolute top-10 left-10 w-32 h-32 rounded-full border-4 border-solar/30 float-slow"></div>
+  <div class="absolute bottom-12 right-12 text-solar text-7xl font-black float-fast opacity-50">✱</div>
+
+  <div class="max-w-3xl mx-auto px-5 lg:px-8 text-center">
+    <h2 class="reveal font-display font-black text-white text-4xl sm:text-5xl lg:text-7xl leading-[1.02]">
+      Sua visão merece um <span class="text-solar">olhar 360°.</span>
+    </h2>
+    <p class="reveal text-white/70 text-lg lg:text-xl mt-6 max-w-xl mx-auto">
+      30 segundos pra descobrir. Uma vida inteira pra ver melhor.
+    </p>
+    <button onclick="openQuiz()" class="cta-pulse mt-10 inline-flex items-center gap-3 bg-solar text-petroleo font-display font-extrabold text-base lg:text-xl px-8 py-6 rounded-2xl shadow-cta">
+      🟡 FAZER MEU DIAGNÓSTICO 360° AGORA
+      <span class="text-2xl leading-none">→</span>
+    </button>
+  </div>
+</section>
+
+<!-- ====================================================== -->
+<!-- FOOTER                                                  -->
+<!-- ====================================================== -->
+<footer class="bg-petroDark text-white/80">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 py-14 grid md:grid-cols-3 gap-10">
+    <div>
+      <img src="assets/logo-olhar360.png" alt="Óticas Olhar 360°" class="logo-img-lg logo-img-light" />
+      <p class="mt-5 text-white/60 italic">Visão completa. Cuidado 360°.</p>
+    </div>
+
+    <div>
+      <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Atendimento</h4>
+      <ul class="space-y-2 text-sm text-white/70">
+        <li>📍 Rua José de Alencar, 862 — Camocim/CE · 62400-000</li>
+        <li>💬 (88) 99274-2862 (WhatsApp)</li>
+        <li>📧 oticasolhar360@gmail.com</li>
+        <li>🕐 Seg–Sex 8h–18h · Sáb 8h–13h</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Acompanhe</h4>
+      <div class="flex gap-3">
+        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-solar hover:text-petroleo flex items-center justify-center transition" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 3.3.15 4.8 1.7 5 5 .06 1.2.07 1.6.07 4.8s0 3.6-.07 4.8c-.2 3.3-1.7 4.8-5 5-1.2.06-1.6.07-4.8.07s-3.6 0-4.8-.07c-3.3-.2-4.8-1.7-5-5C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.8c.2-3.3 1.7-4.8 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 5.4a4.4 4.4 0 100 8.8 4.4 4.4 0 000-8.8zm0 7.2a2.8 2.8 0 110-5.6 2.8 2.8 0 010 5.6zm5.6-7.4a1 1 0 100-2 1 1 0 000 2z"/></svg>
+        </a>
+        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-solar hover:text-petroleo flex items-center justify-center transition" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H8v-3h2.4V9.5c0-2.4 1.4-3.7 3.5-3.7 1 0 2.1.18 2.1.18v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5V12h2.6l-.4 3h-2.2v7A10 10 0 0022 12z"/></svg>
+        </a>
+        <a href="https://wa.me/5588992742862" class="w-10 h-10 rounded-full bg-white/10 hover:bg-emerald-500 flex items-center justify-center transition" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.671 5.494l-.999 3.648 3.817-1.001z"/></svg>
+        </a>
+      </div>
+      <a href="#" class="block mt-5 text-sm text-white/60 hover:text-white">Política de privacidade</a>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8 py-6 text-xs text-white/50 leading-relaxed">
+      Este diagnóstico não substitui consulta médica oftalmológica. É uma triagem informativa para encaminhamento.
+      <br />
+      © 2026 Óticas Olhar 360° · Andreanne de Sousa Rocha — CNPJ: 59.407.982/0001-83 · Camocim/CE — Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- ====================================================== -->
+<!-- WHATSAPP FLOATING BUTTON                                -->
+<!-- ====================================================== -->
+<a href="https://wa.me/5588992742862" target="_blank" rel="noopener"
+   class="wa-float fixed bottom-5 right-5 z-30 w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-emerald-500 hover:bg-emerald-600 flex items-center justify-center text-white transition"
+   aria-label="Abrir WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.671 5.494l-.999 3.648 3.817-1.001zm6.6-5.807c.232.135 1.582.93 1.85 1.064.27.135.45.2.516.314.067.114.067.66-.155 1.297-.222.636-1.288 1.218-1.815 1.297-.464.07-1.05.099-1.69-.106-.39-.124-.892-.29-1.534-.567-2.7-1.166-4.464-3.884-4.598-4.063-.135-.18-1.097-1.46-1.097-2.785 0-1.323.69-1.974.937-2.244.247-.27.54-.337.72-.337l.518.01c.166.008.39-.063.61.466.232.567.788 1.96.86 2.102.07.144.118.31.024.498-.094.18-.142.297-.282.46-.135.157-.286.353-.41.474-.135.135-.276.282-.118.55.157.27.7 1.156 1.503 1.872 1.034.92 1.905 1.207 2.176 1.343.27.135.428.114.586-.07.158-.18.676-.789.857-1.058.18-.27.36-.226.61-.135.247.094 1.566.74 1.834.876z"/></svg>
+</a>
+
+<!-- ====================================================== -->
+<!-- QUIZ MODAL                                              -->
+<!-- ====================================================== -->
+<div id="quizModal" class="hidden fixed inset-0 z-50 modal-backdrop items-center justify-center p-4">
+  <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
+    <!-- Modal head -->
+    <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo-olhar360.png" alt="Óticas Olhar 360°" class="logo-img-sm" />
+        <span class="hidden sm:inline-block font-display font-extrabold text-petroleo text-sm border-l border-slate-200 pl-3">Diagnóstico</span>
+      </div>
+      <button onclick="closeQuiz()" class="w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 text-xl leading-none" aria-label="Fechar">×</button>
+    </div>
+
+    <!-- Progress -->
+    <div class="px-5 pt-5">
+      <div id="quizProgress" class="flex gap-1.5"></div>
+      <p id="quizCounter" class="text-[11px] tracking-widest font-bold text-teal360 uppercase mt-3">Pergunta 1 de 6</p>
+    </div>
+
+    <!-- Body -->
+    <div id="quizBody" class="px-5 pb-5 pt-2 flex-1 overflow-y-auto"></div>
+
+    <!-- Footer -->
+    <div class="px-5 py-4 border-t border-slate-100 flex items-center justify-between gap-3 bg-graybg">
+      <button id="quizBack" onclick="quizBack()" class="text-petroleo font-medium text-sm px-4 py-2 rounded-lg hover:bg-slate-200 transition disabled:opacity-30" disabled>← Voltar</button>
+      <button id="quizNext" onclick="quizNext()" class="bg-solar text-petroleo font-display font-extrabold text-sm px-6 py-3 rounded-xl shadow-cta disabled:opacity-50 disabled:shadow-none">Continuar →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====================================================== -->
+<!-- SCRIPTS                                                 -->
+<!-- ====================================================== -->
+<script>
+  // ----- Mobile menu -----
+  const burger = document.getElementById('burger');
+  const mm     = document.getElementById('mm');
+  burger.addEventListener('click', () => mm.classList.toggle('open'));
+  mm.querySelectorAll('a, button').forEach(el => el.addEventListener('click', () => mm.classList.remove('open')));
+
+  // ----- Reveal on scroll -----
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ----- QUIZ -----
+  const QUESTIONS = [
+    {
+      q: "Você sente cansaço nos olhos no fim do dia?",
+      opts: [
+        {label:"Quase nunca",         score:0, tone:"emerald"},
+        {label:"Às vezes",            score:1, tone:"amber"},
+        {label:"Quase todo dia",      score:2, tone:"orange"},
+        {label:"Todo dia, forte",     score:3, tone:"rose"},
+      ],
+    },
+    {
+      q: "Quanto tempo por dia você passa em telas (celular, TV, computador)?",
+      opts: [
+        {label:"Menos de 2 horas",    score:0, tone:"emerald"},
+        {label:"Entre 2 e 4 horas",   score:1, tone:"amber"},
+        {label:"Entre 4 e 8 horas",   score:2, tone:"orange"},
+        {label:"Mais de 8 horas",     score:3, tone:"rose"},
+      ],
+    },
+    {
+      q: "Com que frequência você tem dores de cabeça sem motivo aparente?",
+      opts: [
+        {label:"Raramente",           score:0, tone:"emerald"},
+        {label:"1–2x por semana",     score:1, tone:"amber"},
+        {label:"3–4x por semana",     score:2, tone:"orange"},
+        {label:"Quase todos os dias", score:3, tone:"rose"},
+      ],
+    },
+    {
+      q: "Você aperta os olhos ou se aproxima da tela pra ler melhor?",
+      opts: [
+        {label:"Nunca preciso",       score:0, tone:"emerald"},
+        {label:"Só de placas longe",  score:1, tone:"amber"},
+        {label:"Bastante, no celular",score:2, tone:"orange"},
+        {label:"O tempo todo",        score:3, tone:"rose"},
+      ],
+    },
+    {
+      q: "Há quanto tempo você não faz um exame de vista?",
+      opts: [
+        {label:"Menos de 1 ano",      score:0, tone:"emerald"},
+        {label:"Entre 1 e 2 anos",    score:1, tone:"amber"},
+        {label:"Entre 2 e 5 anos",    score:2, tone:"orange"},
+        {label:"Mais de 5 anos / nunca", score:3, tone:"rose"},
+      ],
+    },
+    {
+      q: "Qual sua faixa de idade?",
+      opts: [
+        {label:"Menos de 25",         score:0, tone:"emerald"},
+        {label:"25 a 39",             score:1, tone:"amber"},
+        {label:"40 a 54",             score:2, tone:"orange"},
+        {label:"55 ou mais",          score:3, tone:"rose"},
+      ],
+    },
+  ];
+
+  const TONE = {
+    emerald: { border:'border-emerald-300', bg:'bg-emerald-50', dot:'bg-emerald-500'},
+    amber:   { border:'border-amber-300',   bg:'bg-amber-50',   dot:'bg-amber-400'},
+    orange:  { border:'border-orange-300',  bg:'bg-orange-50',  dot:'bg-orange-500'},
+    rose:    { border:'border-rose-300',    bg:'bg-rose-50',    dot:'bg-rose-500'},
+  };
+
+  let qIdx = 0;
+  let answers = Array(QUESTIONS.length).fill(null);
+  let resultShown = false;
+
+  function openQuiz(){
+    qIdx = 0;
+    answers = Array(QUESTIONS.length).fill(null);
+    resultShown = false;
+    document.getElementById('quizModal').classList.remove('hidden');
+    document.getElementById('quizModal').classList.add('flex');
+    document.body.classList.add('locked');
+    renderQuiz();
+  }
+  function closeQuiz(){
+    document.getElementById('quizModal').classList.add('hidden');
+    document.getElementById('quizModal').classList.remove('flex');
+    document.body.classList.remove('locked');
+  }
+  // Close on backdrop
+  document.getElementById('quizModal').addEventListener('click', (e) => {
+    if (e.target.id === 'quizModal') closeQuiz();
+  });
+  // Esc
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeQuiz(); });
+
+  function renderProgress(){
+    const p = document.getElementById('quizProgress');
+    p.innerHTML = '';
+    QUESTIONS.forEach((_, i) => {
+      const seg = document.createElement('div');
+      seg.className = 'seg' + (i <= qIdx ? ' on' : '');
+      p.appendChild(seg);
+    });
+  }
+
+  function renderQuiz(){
+    if (resultShown) { renderResult(); return; }
+    const body = document.getElementById('quizBody');
+    const counter = document.getElementById('quizCounter');
+    counter.textContent = `Pergunta ${qIdx+1} de ${QUESTIONS.length}`;
+    renderProgress();
+
+    const q = QUESTIONS[qIdx];
+    body.innerHTML = `
+      <h3 class="font-display font-extrabold text-petroleo text-xl lg:text-2xl leading-tight mt-4">${q.q}</h3>
+      <div class="mt-5 space-y-2.5">
+        ${q.opts.map((o, i) => `
+          <button class="opt-btn w-full flex items-center gap-3 p-4 rounded-xl border-2 ${TONE[o.tone].border} ${TONE[o.tone].bg} text-left ${answers[qIdx] === i ? 'sel' : ''}" data-i="${i}">
+            <span class="w-3 h-3 rounded-full ${TONE[o.tone].dot} flex-shrink-0"></span>
+            <span class="text-sm font-semibold text-petroleo">${o.label}</span>
+          </button>
+        `).join('')}
+      </div>
+    `;
+
+    body.querySelectorAll('.opt-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const i = parseInt(btn.dataset.i, 10);
+        answers[qIdx] = i;
+        // visually update
+        body.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('sel'));
+        btn.classList.add('sel');
+        updateNav();
+      });
+    });
+
+    updateNav();
+  }
+
+  function updateNav(){
+    const nextBtn = document.getElementById('quizNext');
+    const backBtn = document.getElementById('quizBack');
+    backBtn.disabled = qIdx === 0;
+    if (resultShown) {
+      nextBtn.textContent = '🟢 Falar no WhatsApp →';
+      nextBtn.disabled = false;
+      return;
+    }
+    const has = answers[qIdx] !== null;
+    nextBtn.disabled = !has;
+    nextBtn.textContent = (qIdx === QUESTIONS.length - 1) ? 'Ver meu diagnóstico →' : 'Continuar →';
+  }
+
+  function quizNext(){
+    if (resultShown) {
+      // Send to WhatsApp
+      const score = answers.reduce((s, a, i) => s + (a !== null ? QUESTIONS[i].opts[a].score : 0), 0);
+      const profile = profileFor(score);
+      const msg = encodeURIComponent(
+        `Olá, Olhar 360°! Acabei de fazer o Diagnóstico 360° e meu perfil é: *${profile.title}*. Quero garantir minha vaga para o exame gratuito + óculos de sol com grau de brinde.`
+      );
+      window.open(`https://wa.me/5588992742862?text=${msg}`, '_blank');
+      return;
+    }
+    if (answers[qIdx] === null) return;
+    if (qIdx < QUESTIONS.length - 1) {
+      qIdx++;
+      renderQuiz();
+    } else {
+      resultShown = true;
+      renderResult();
+    }
+  }
+  function quizBack(){
+    if (resultShown) { resultShown = false; renderQuiz(); return; }
+    if (qIdx > 0) { qIdx--; renderQuiz(); }
+  }
+
+  function profileFor(score){
+    // max = 18
+    if (score <= 5)  return { key:'low',  title:'Visão Estável',     pct: Math.round((score/18)*100), color:'emerald',
+      desc:'Boas notícias: seus olhos parecem estar bem cuidados. Ainda assim, um exame preventivo a cada 12 meses garante que nada esteja se desenvolvendo silenciosamente.' };
+    if (score <= 11) return { key:'mid',  title:'Fadiga Visual em Alerta', pct: Math.round((score/18)*100), color:'amber',
+      desc:'Seus olhos estão dando sinais claros de fadiga. Pequenos ajustes (e talvez um grau leve) podem eliminar dores de cabeça e cansaço já na primeira semana.' };
+    return { key:'high', title:'Alto Risco de Comprometimento', pct: Math.round((score/18)*100), color:'rose',
+      desc:'Atenção: seus sintomas indicam alto risco de problema refrativo não corrigido. É importante fazer o exame nos próximos dias — quanto antes, mais fácil reverter.' };
+  }
+
+  function renderResult(){
+    const score = answers.reduce((s, a, i) => s + (a !== null ? QUESTIONS[i].opts[a].score : 0), 0);
+    const p = profileFor(score);
+    const body = document.getElementById('quizBody');
+    document.getElementById('quizCounter').textContent = 'Resultado do seu Diagnóstico 360°';
+    // fill all progress segments
+    const prog = document.getElementById('quizProgress');
+    prog.innerHTML = '';
+    QUESTIONS.forEach(() => {
+      const seg = document.createElement('div'); seg.className='seg on'; prog.appendChild(seg);
+    });
+
+    const colorMap = {
+      emerald: { ring:'ring-emerald-200',  badge:'bg-emerald-100 text-emerald-700', icon:'🟢' },
+      amber:   { ring:'ring-amber-200',    badge:'bg-amber-100 text-amber-700',     icon:'🟡' },
+      rose:    { ring:'ring-rose-200',     badge:'bg-rose-100 text-rose-700',       icon:'🔴' },
+    };
+    const c = colorMap[p.color];
+
+    body.innerHTML = `
+      <div class="text-center pt-2">
+        <span class="inline-flex items-center gap-2 ${c.badge} text-xs font-extrabold tracking-wider uppercase px-3 py-1.5 rounded-full">${c.icon} Seu perfil</span>
+        <h3 class="font-display font-black text-petroleo text-2xl lg:text-3xl mt-3 leading-tight">${p.title}</h3>
+        <div class="mt-4 max-w-sm mx-auto">
+          <div class="flex items-center justify-between text-xs text-inkSoft mb-1.5">
+            <span>Índice de fadiga visual</span>
+            <span class="font-bold text-petroleo">${p.pct}%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:${p.pct}%"></div></div>
+        </div>
+        <p class="text-inkSoft mt-5 leading-relaxed text-sm lg:text-base max-w-sm mx-auto">${p.desc}</p>
+      </div>
+
+      <div class="mt-6 bg-graybg rounded-2xl p-5 border border-slate-100">
+        <p class="font-display font-extrabold text-petroleo text-base">🎁 Você liberou:</p>
+        <ul class="mt-3 space-y-2 text-sm text-petroleo">
+          <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Exame de vista <strong>GRATUITO</strong> em Camocim</li>
+          <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Óculos de sol com grau de <strong>BRINDE</strong></li>
+          <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Atendimento prioritário sem fila</li>
+        </ul>
+        <p class="text-xs text-inkSoft mt-4">Toque em <strong>"Falar no WhatsApp"</strong> abaixo para garantir sua vaga (apenas 50 esta semana).</p>
+      </div>
+    `;
+    updateNav();
+  }
+</script>
+
+</body>
+</html>
