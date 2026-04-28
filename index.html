@@ -928,9 +928,14 @@
         const i = parseInt(btn.dataset.i, 10);
         answers[qIdx] = i;
         // visually update
-        body.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('sel'));
+        body.querySelectorAll('.opt-btn').forEach(b => {
+          b.classList.remove('sel');
+          b.disabled = true;
+        });
         btn.classList.add('sel');
         updateNav();
+        // auto-advance to next question (or result on last)
+        setTimeout(() => quizNext(), 280);
       });
     });
 
