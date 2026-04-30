@@ -279,6 +279,8 @@
 
   /* Hide scroll on body when menu open */
   body.no-scroll { overflow: hidden; }
+  /* Esconde header quando menu mobile aberto (evita logo sobreposta + botão duplicado) */
+  body.no-scroll #siteHeader { visibility: hidden; pointer-events: none; }
 
   /* Section anchor offset */
   section[id] { scroll-margin-top: 80px; }
@@ -330,7 +332,7 @@
 </header>
 
 <!-- Mobile menu -->
-<div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-azul-bg lg:hidden flex flex-col" aria-hidden="true">
+<div id="mobileMenu" class="mobile-menu fixed inset-0 z-[60] bg-azul-bg lg:hidden flex flex-col" aria-hidden="true">
   <div class="flex items-center justify-between px-5 py-4">
     <img src="assets/logo-white.png" alt="" class="h-10" />
     <button id="mobileClose" class="text-white p-2" aria-label="Fechar menu">
