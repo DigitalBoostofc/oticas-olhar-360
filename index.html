@@ -277,6 +277,24 @@
   /* 360Gold variant */
   .gold-stripes { background: repeating-linear-gradient(135deg, rgba(235,191,50,.0) 0 24px, rgba(235,191,50,.06) 24px 25px); }
 
+  /* Cidades — marquee infinito esquerda → direita */
+  .cities-mask {
+    position: relative;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+  }
+  .cities-track {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    white-space: nowrap;
+    width: max-content;
+    animation: scroll-right 30s linear infinite;
+  }
+  .cities-track:hover { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) { .cities-track { animation: none; } }
+
   /* Hide scroll on body when menu open */
   body.no-scroll { overflow: hidden; }
   /* Esconde header quando menu mobile aberto (evita logo sobreposta + botão duplicado) */
@@ -378,20 +396,33 @@
             Fale com um consultor
           </button>
         </div>
-        <div class="reveal delay-4 mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs uppercase tracking-[0.15em] text-white/60 font-bold">
-          <span class="w-2 h-2 bg-amarelo rounded-full"></span>
-          <span>Camocim</span><span class="opacity-40">·</span>
-          <span>Granja</span><span class="opacity-40">·</span>
-          <span>Barroquinha</span><span class="opacity-40">·</span>
-          <span>Chaval</span>
+        <div class="reveal delay-4 mt-12 cities-mask">
+          <div class="cities-track text-xs uppercase tracking-[0.15em] text-white/60 font-bold">
+            <span class="w-2 h-2 bg-amarelo rounded-full flex-none"></span>
+            <span>Camocim</span>
+            <span class="w-2 h-2 bg-amarelo rounded-full flex-none"></span>
+            <span>Granja</span>
+            <span class="w-2 h-2 bg-amarelo rounded-full flex-none"></span>
+            <span>Barroquinha</span>
+            <span class="w-2 h-2 bg-amarelo rounded-full flex-none"></span>
+            <span>Chaval</span>
+            <span class="w-2 h-2 bg-amarelo rounded-full flex-none" aria-hidden="true"></span>
+            <span aria-hidden="true">Camocim</span>
+            <span class="w-2 h-2 bg-amarelo rounded-full flex-none" aria-hidden="true"></span>
+            <span aria-hidden="true">Granja</span>
+            <span class="w-2 h-2 bg-amarelo rounded-full flex-none" aria-hidden="true"></span>
+            <span aria-hidden="true">Barroquinha</span>
+            <span class="w-2 h-2 bg-amarelo rounded-full flex-none" aria-hidden="true"></span>
+            <span aria-hidden="true">Chaval</span>
+          </div>
         </div>
       </div>
       <div class="lg:col-span-6 xl:col-span-6">
-        <div class="hero-collage relative aspect-[901/922] max-w-[950px] ml-auto reveal scale-in delay-2">
+        <div class="hero-collage relative z-20 aspect-[901/922] max-w-[360px] mx-auto lg:max-w-[950px] lg:ml-auto lg:mx-0 reveal scale-in delay-2">
           <div class="absolute inset-0 rounded-[36px] overflow-hidden parallax" data-speed="0.04">
             <img src="assets/homem.png" alt="Atendente da Óticas Olhar 360° em frente à loja em Camocim" class="w-full h-full object-contain" loading="lazy" />
           </div>
-          <div class="absolute -bottom-[40px] left-[40px] lg:-bottom-[48px] lg:left-[66px] w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-amarelo flex items-center justify-center text-azul-escuro shadow-xl cta-pulse">
+          <div class="absolute z-30 bottom-2 left-2 lg:bottom-4 lg:left-4 w-16 h-16 lg:w-24 lg:h-24 rounded-full bg-amarelo flex items-center justify-center text-azul-escuro shadow-xl cta-pulse">
             <div class="text-center leading-tight">
               <div class="text-2xl font-extrabold">+12</div>
               <div class="text-[10px] uppercase tracking-widest font-extrabold">anos</div>
