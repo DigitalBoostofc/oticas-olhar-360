@@ -3,1040 +3,1157 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Óticas Olhar 360° — Diagnóstico Visual Gratuito em Camocim</title>
-<meta name="description" content="Faça o Diagnóstico 360° de 30 segundos e descubra se seus olhos precisam de ajuda. Exame grátis + óculos de sol com grau de brinde. Atendimento em Camocim - CE." />
+<title>Óticas Olhar 360° — Qualidade que representa</title>
+<meta name="description" content="Óticas Olhar 360° em Camocim/CE — Atendimento humanizado, marcas reconhecidas e a coleção própria 360Gold. Agende seu exame de vista." />
 
-<!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800;900&family=Allura&display=swap" rel="stylesheet">
 
 <script>
   tailwind.config = {
     theme: {
       extend: {
         colors: {
-          solar:    '#F5B41A',
-          solarSoft:'#FFE7A8',
-          petroleo: '#3D5B7A',
-          petroDark:'#2A405A',
-          teal360:  '#3FA9B9',
-          tealSoft: '#D8F0F4',
-          graybg:   '#F8F9FA',
-          inkSoft:  '#5B6B7E',
+          'azul-bg': '#275989',
+          'azul-claro': '#6CA1B0',
+          'amarelo': '#EBBF32',
+          'cinza-respiro': '#F4F6F8',
+          'azul-escuro': '#1A3D5C',
         },
         fontFamily: {
-          display: ['Montserrat', 'Inter', 'sans-serif'],
-          body:    ['Inter', 'system-ui', 'sans-serif'],
+          sans: ['"Batica Sans"', 'Saira', 'system-ui', 'sans-serif'],
         },
-        boxShadow: {
-          'cta':     '0 10px 30px -8px rgba(245,180,26,.55), 0 4px 12px -2px rgba(245,180,26,.35)',
-          'card':    '0 4px 24px -8px rgba(61,91,122,.18), 0 2px 6px -2px rgba(61,91,122,.10)',
-          'cardHi':  '0 18px 50px -10px rgba(61,91,122,.30), 0 6px 18px -6px rgba(61,91,122,.18)',
-          'phone':   '0 30px 60px -20px rgba(61,91,122,.45), 0 14px 28px -10px rgba(63,169,185,.30)',
-        },
-      },
-    },
-  };
+      }
+    }
+  }
 </script>
 
 <style>
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    color: #1f2a37;
-    background: #ffffff;
-    -webkit-font-smoothing: antialiased;
+  :root {
+    --azul-bg: #275989;
+    --azul-claro: #6CA1B0;
+    --amarelo: #EBBF32;
+    --cinza-respiro: #F4F6F8;
+    --azul-escuro: #1A3D5C;
   }
-  h1,h2,h3,.font-display { font-family: 'Montserrat', 'Inter', sans-serif; letter-spacing:-0.02em; }
+  html, body { font-family: "Batica Sans", "Saira", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  body { background: #fff; color: var(--azul-escuro); line-height: 1.6; }
 
-  /* CTA pulse */
-  @keyframes ctaPulse {
-    0%,100% { box-shadow: 0 10px 30px -8px rgba(245,180,26,.55), 0 0 0 0 rgba(245,180,26,.55); }
-    50%     { box-shadow: 0 10px 30px -8px rgba(245,180,26,.55), 0 0 0 14px rgba(245,180,26,0); }
-  }
-  .cta-pulse { animation: ctaPulse 2.4s ease-out infinite; }
-
-  /* Floating decorative blobs */
-  @keyframes floaty {
-    0%,100% { transform: translateY(0) rotate(0deg); }
-    50%     { transform: translateY(-14px) rotate(6deg); }
-  }
-  .float-slow { animation: floaty 6s ease-in-out infinite; }
-  .float-fast { animation: floaty 4s ease-in-out infinite; }
+  .headline { font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; line-height: 0.95; }
+  .script-font { font-family: 'Allura', cursive; font-weight: 400; text-transform: none; letter-spacing: 0; line-height: 1; }
+  .eyebrow { font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; }
 
   /* Reveal on scroll */
-  .reveal { opacity:0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
-  .reveal.in { opacity:1; transform: translateY(0); }
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 900ms cubic-bezier(.16,.84,.32,1), transform 900ms cubic-bezier(.16,.84,.32,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal.delay-1 { transition-delay: 120ms; }
+  .reveal.delay-2 { transition-delay: 240ms; }
+  .reveal.delay-3 { transition-delay: 360ms; }
+  .reveal.delay-4 { transition-delay: 480ms; }
+  .reveal.delay-5 { transition-delay: 600ms; }
+  .reveal.scale-in { transform: translateY(40px) scale(.96); }
+  .reveal.scale-in.in { transform: translateY(0) scale(1); }
 
-  /* Hero gradient background */
-  .hero-bg {
-    background:
-      radial-gradient(1200px 600px at 100% 0%, #D8F0F4 0%, rgba(216,240,244,0) 60%),
-      radial-gradient(800px 500px at 0% 100%, #FFF6DC 0%, rgba(255,246,220,0) 60%),
-      #ffffff;
+  /* Pulse on primary CTA */
+  @keyframes pulseRing {
+    0% { box-shadow: 0 0 0 0 rgba(235,191,50,.55); }
+    70% { box-shadow: 0 0 0 18px rgba(235,191,50,0); }
+    100% { box-shadow: 0 0 0 0 rgba(235,191,50,0); }
+  }
+  .cta-pulse { animation: pulseRing 2.4s infinite; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; font-size: 13px; padding: 16px 22px; border-radius: 14px; transition: all .35s cubic-bezier(.16,.84,.32,1); will-change: transform; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--amarelo); color: var(--azul-escuro); }
+  .btn-primary:hover { background: #fac93f; box-shadow: 0 18px 40px -12px rgba(235,191,50,.55); }
+  .btn-dark { background: var(--azul-escuro); color: #fff; }
+  .btn-dark:hover { background: #122c43; box-shadow: 0 18px 40px -12px rgba(26,61,92,.5); }
+  .btn-outline { border: 1.5px solid rgba(255,255,255,.85); color: #fff; background: transparent; }
+  .btn-outline:hover { background: #fff; color: var(--azul-bg); }
+  .btn-arrow { width: 36px; height: 36px; border-radius: 10px; background: var(--azul-bg); display: inline-flex; align-items: center; justify-content: center; }
+  .btn-primary .btn-arrow { background: var(--azul-bg); }
+  .btn-primary .btn-arrow svg { stroke: var(--amarelo); }
+  .btn-dark .btn-arrow { background: var(--amarelo); }
+  .btn-dark .btn-arrow svg { stroke: var(--azul-escuro); }
+  .btn:hover .btn-arrow { transform: translateX(3px); }
+  .btn-arrow { transition: transform .35s cubic-bezier(.16,.84,.32,1); }
+
+  /* Cards */
+  .card-soft { background: #fff; border-radius: 22px; box-shadow: 0 20px 50px -24px rgba(39,89,137,.25), 0 4px 12px -4px rgba(39,89,137,.08); transition: transform .4s ease, box-shadow .4s ease; }
+  .card-soft:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -20px rgba(39,89,137,.3); }
+
+  /* Header */
+  .nav-link { position: relative; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; padding: 8px 4px; transition: color .3s; }
+  .nav-link::after { content:''; position:absolute; left: 0; right:0; bottom: 2px; height: 2px; background: var(--amarelo); transform: scaleX(0); transform-origin: left; transition: transform .35s cubic-bezier(.16,.84,.32,1); }
+  .nav-link.active::after, .nav-link:hover::after { transform: scaleX(1); }
+
+  /* Loading */
+  .loader-overlay { position: fixed; inset: 0; background: var(--azul-bg); z-index: 200; display: flex; align-items: center; justify-content: center; transition: opacity .8s ease, visibility .8s; }
+  .loader-overlay.hidden-loader { opacity: 0; visibility: hidden; }
+  .loader-bar { width: 240px; height: 2px; background: rgba(255,255,255,.2); border-radius: 2px; overflow: hidden; margin: 0 auto; }
+  .loader-bar-fill { height:100%; width: 0; background: var(--amarelo); animation: loaderFill 1.4s ease forwards; }
+  @keyframes loaderFill { 0% { width: 0; } 100% { width: 100%; } }
+
+  /* Custom cursor */
+  .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; border-radius: 50%; mix-blend-mode: difference; }
+  .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); transition: transform .12s ease; }
+  .cursor-ring { width: 36px; height: 36px; border: 1.5px solid #fff; transform: translate(-50%, -50%); transition: width .3s ease, height .3s ease, transform .3s ease; }
+  .cursor-ring.hover { width: 64px; height: 64px; border-color: #EBBF32; }
+  @media (max-width: 1024px), (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none !important; }
   }
 
-  /* Petroleo background w/ subtle texture */
-  .petro-bg {
-    background:
-      radial-gradient(900px 500px at 90% 10%, rgba(63,169,185,.25) 0%, rgba(63,169,185,0) 60%),
-      radial-gradient(700px 400px at 10% 90%, rgba(245,180,26,.18) 0%, rgba(245,180,26,0) 60%),
-      #3D5B7A;
+  /* Hero parallax */
+  .parallax { transition: transform .15s linear; will-change: transform; }
+
+  /* Bg mosaico */
+  .hero-bg-mosaic { background-image: url('assets/mosaico.png'); background-size: cover; background-position: center; opacity: .14; mix-blend-mode: screen; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #fff; }
+  ::-webkit-scrollbar-thumb { background: var(--azul-claro); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--azul-bg); }
+
+  /* Wave dividers */
+  .wave-divider { display: block; width: 100%; height: 180px; }
+  @media (max-width: 768px) { .wave-divider { height: 110px; } }
+
+  /* Óculos pendurado balançando */
+  .hanging-glasses { transform-origin: top center; animation: glassesSwing 4.2s ease-in-out infinite; }
+  @keyframes glassesSwing {
+    0%, 100% { transform: rotate(-4deg); }
+    50%      { transform: rotate(4deg); }
   }
 
-  /* Offer gradient */
-  .offer-bg {
-    background: linear-gradient(180deg, #FFF1C2 0%, #FFFAE6 40%, #FFFFFF 100%);
+  /* Decorativos animados — floaters, drifters, twinkles */
+  @keyframes floatY  { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-22px); } }
+  @keyframes floatYX { 0%,100% { transform: translate(0,0) rotate(0); } 50% { transform: translate(14px,-18px) rotate(8deg); } }
+  @keyframes spinSlow { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @keyframes twinkle { 0%,100% { opacity: .25; transform: scale(1); } 50% { opacity: 1; transform: scale(1.3); } }
+  @keyframes drift   { 0% { transform: translate(0,0); } 100% { transform: translate(60px,-40px); } }
+
+  .float-y  { animation: floatY 5s ease-in-out infinite; }
+  .float-yx { animation: floatYX 7s ease-in-out infinite; }
+  .spin-slow { animation: spinSlow 28s linear infinite; }
+  .twinkle  { animation: twinkle 3.2s ease-in-out infinite; }
+  .drift-slow { animation: drift 12s ease-in-out infinite alternate; }
+  .delay-1k { animation-delay: 1s; }
+  .delay-2k { animation-delay: 2s; }
+  .delay-3k { animation-delay: 3s; }
+  @media (prefers-reduced-motion: reduce) {
+    .float-y, .float-yx, .spin-slow, .twinkle, .drift-slow { animation: none !important; }
   }
 
-  /* Phone frame */
-  .phone-shell {
-    border-radius: 44px;
-    background: linear-gradient(180deg, #1a2533 0%, #2A405A 100%);
-    padding: 12px;
+  /* Wave drift animation — paths extended to 2880px (2x viewBox) for seamless loop */
+  .wave-anim { will-change: transform; }
+  .wave-anim-back  { animation: waveDrift 22s linear infinite; }
+  .wave-anim-front { animation: waveDrift 14s linear infinite reverse; }
+  @keyframes waveDrift {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-1440px); }
   }
-  .phone-screen {
-    border-radius: 32px;
+  @media (prefers-reduced-motion: reduce) {
+    .wave-anim { animation: none !important; }
+  }
+
+  /* Marquee for brands */
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  .brand-row { display: flex; gap: 40px; white-space: nowrap; width: max-content; }
+  .brand-row.left  { animation: scroll-left  35s linear infinite; }
+  .brand-row.right { animation: scroll-right 35s linear infinite; }
+  .brand-row:hover { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    .brand-row.left, .brand-row.right { animation: none; }
+  }
+
+  .brand-mask { position: relative; overflow: hidden; padding: 12px 0; }
+  .brand-mask::before,
+  .brand-mask::after {
+    content: ""; position: absolute; top: 0; bottom: 0; width: 96px; pointer-events: none; z-index: 2;
+  }
+  .brand-mask::before { left: 0;  background: linear-gradient(to right, #F4F6F8 0%, rgba(244,246,248,0) 100%); }
+  .brand-mask::after  { right: 0; background: linear-gradient(to left,  #F4F6F8 0%, rgba(244,246,248,0) 100%); }
+
+  .brand-chip {
+    flex-shrink: 0;
+    height: 76px;
+    min-width: 168px;
+    padding: 0 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     background: #fff;
-    overflow: hidden;
-    height: 560px;
-    width: 280px;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px -6px rgba(39,89,137,.18), 0 2px 4px -2px rgba(39,89,137,.10);
+    color: #1A3D5C;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 15px;
+    transition: transform .35s cubic-bezier(.16,.84,.32,1), box-shadow .35s, background .35s, color .35s;
+  }
+  .brand-chip img { height: 28px; width: auto; object-fit: contain; }
+  .brand-chip:hover { transform: translateY(-3px); box-shadow: 0 14px 30px -10px rgba(39,89,137,.32), 0 4px 10px -4px rgba(39,89,137,.18); background: #275989; color: #fff; }
+
+  /* Mobile menu */
+  .mobile-menu { transform: translateY(-100%); transition: transform .5s cubic-bezier(.16,.84,.32,1); }
+  .mobile-menu.open { transform: translateY(0); }
+
+  /* Modal */
+  .modal-backdrop { background: rgba(26,61,92,.65); backdrop-filter: blur(8px); }
+
+  /* Form fields */
+  .field { width:100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #E2E8F0; background: #fff; font-size: 15px; transition: border-color .25s, box-shadow .25s; font-family: inherit; }
+  .field:focus { outline: none; border-color: var(--azul-claro); box-shadow: 0 0 0 4px rgba(108,161,176,.18); }
+
+  /* Testimonials — Marquee infinito (2 trilhas em direções opostas) */
+  .t-marquee-mask {
     position: relative;
+    overflow: hidden;
+    padding: 12px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
   }
-  .phone-notch {
-    position:absolute; top:8px; left:50%; transform:translateX(-50%);
-    width: 90px; height: 22px; background:#1a2533; border-radius: 12px; z-index: 5;
+  .t-marquee-row {
+    display: flex;
+    gap: 22px;
+    width: max-content;
+    white-space: normal;
   }
+  .t-marquee-row.left  { animation: scroll-left  60s linear infinite; }
+  .t-marquee-row.right { animation: scroll-right 75s linear infinite; }
+  .t-marquee-row:hover { animation-play-state: paused; }
 
-  /* Quiz progress segments */
-  .seg { height: 4px; flex:1; border-radius: 999px; background:#E9EDF2; }
-  .seg.on { background:#F5B41A; }
-
-  /* Accordion */
-  details > summary { list-style: none; cursor: pointer; }
-  details > summary::-webkit-details-marker { display: none; }
-  details[open] .acc-icon { transform: rotate(45deg); }
-  .acc-icon { transition: transform .25s ease; }
-
-  /* Mobile menu transition */
-  .mm { max-height:0; overflow:hidden; transition: max-height .35s ease; }
-  .mm.open { max-height: 320px; }
-
-  /* Quiz modal */
-  .modal-backdrop { background: rgba(20,30,45,.7); backdrop-filter: blur(6px); }
-  .opt-btn { transition: all .18s ease; }
-  .opt-btn:hover { transform: translateY(-2px); }
-
-  /* Selected option ring */
-  .opt-btn.sel { outline: 3px solid #F5B41A; outline-offset: 2px; }
-
-  /* Stat number */
-  .stat-num { font-family:'Montserrat'; font-weight:900; color:#F5B41A; line-height:1; letter-spacing:-0.04em; }
-
-  /* Underline marker */
-  .mark-yellow {
-    background: linear-gradient(180deg, transparent 60%, rgba(245,180,26,.55) 60%);
-    padding: 0 2px;
+  .t-mini {
+    flex: 0 0 auto;
+    width: 340px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fff;
+    border-radius: 22px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform .35s ease, background .35s ease, border-color .35s ease;
   }
+  .t-mini:hover { transform: translateY(-3px); background: rgba(255,255,255,0.12); border-color: rgba(235,191,50,0.4); }
+  .t-mini-stars { color: #EBBF32; font-size: 14px; letter-spacing: 3px; }
+  .t-mini-text { color: rgba(255,255,255,0.92); font-size: 14px; line-height: 1.5; flex: 1; min-height: 84px; }
+  .t-mini-meta { display: flex; align-items: center; gap: 12px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .t-mini-avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: #fff; flex: none; }
+  .t-mini-name { font-weight: 800; font-size: 13px; letter-spacing: -0.01em; }
+  .t-mini-city { font-size: 11px; color: rgba(255,255,255,0.55); }
 
-  /* Star color */
-  .star { color: #F5B41A; }
-
-  /* WhatsApp float */
-  .wa-float { box-shadow: 0 14px 30px -8px rgba(37,211,102,.6), 0 4px 10px rgba(0,0,0,.15); }
-
-  /* Logo */
-  .logo-img { display:block; height: 64px; width:auto; }
-  .logo-img-sm { display:block; height: 48px; width:auto; }
-  .logo-img-xs { display:block; height: 36px; width:auto; }
-  .logo-img-lg { display:block; height: 88px; width:auto; }
-  /* Footer logo: invert dark navy text to white using filter on dark bg */
-  .logo-img-light {
-    /* Use a soft white drop on dark BG via mix-blend; keep teal/yellow legible */
-    filter: brightness(0) invert(1) opacity(.92);
+  @media (prefers-reduced-motion: reduce) {
+    .t-marquee-row.left, .t-marquee-row.right { animation: none; }
   }
 
-  /* No-scroll when modal open */
-  body.locked { overflow: hidden; }
+  /* Floating buttons */
+  .float-btn { position: fixed; bottom: 24px; z-index: 90; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 18px 40px -10px rgba(0,0,0,.3); transition: transform .3s ease; }
+  .float-btn:hover { transform: scale(1.08); }
 
-  /* Selected card pop */
-  .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
-  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -12px rgba(61,91,122,.22); }
+  /* Hero variants base */
+  .hero-collage img { box-shadow: 0 40px 80px -30px rgba(0,0,0,.45); }
 
-  /* Subtle striping */
-  .stripes {
-    background-image: repeating-linear-gradient(135deg, rgba(63,169,185,.08) 0 8px, transparent 8px 18px);
-  }
+  /* Photo frame circle (mobile bg) */
+  .blob-mask { -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 65%, transparent 100%); mask-image: radial-gradient(circle at 50% 50%, #000 65%, transparent 100%); }
 
-  /* Result bar */
-  .bar-track { height:8px; background:#E9EDF2; border-radius:999px; overflow:hidden; }
-  .bar-fill  { height:100%; background:linear-gradient(90deg,#3FA9B9,#F5B41A); }
+  /* 360Gold variant */
+  .gold-stripes { background: repeating-linear-gradient(135deg, rgba(235,191,50,.0) 0 24px, rgba(235,191,50,.06) 24px 25px); }
 
+  /* Hide scroll on body when menu open */
+  body.no-scroll { overflow: hidden; }
+
+  /* Section anchor offset */
+  section[id] { scroll-margin-top: 80px; }
+
+  /* Link helpers */
+  .link-underline { position: relative; }
+  .link-underline::after { content:''; position:absolute; left:0; right:0; bottom:-3px; height:2px; background: currentColor; transform: scaleX(.3); transform-origin: left; transition: transform .35s ease; }
+  .link-underline:hover::after { transform: scaleX(1); }
 </style>
 </head>
 
-<body class="font-body text-slate-800">
+<body>
 
-<!-- ====================================================== -->
-<!-- HEADER                                                  -->
-<!-- ====================================================== -->
-<header id="topo" class="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur border-b border-slate-100 shadow-sm">
-  <div class="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="#topo" class="flex items-center gap-3" aria-label="Óticas Olhar 360°">
-      <img src="assets/logo-olhar360.png" alt="Óticas Olhar 360°" class="logo-img" style="width: 200px; height: 200px" />
-      <span class="hidden lg:block text-[10px] tracking-[0.2em] uppercase text-inkSoft font-semibold border-l border-slate-200 pl-3">Camocim · CE</span>
-    </a>
-
-    <!-- Right -->
-    <div class="hidden md:flex items-center gap-6">
-      <a href="#problema" class="text-sm font-medium text-petroleo hover:text-teal360 transition">Sintomas</a>
-      <a href="#oferta"   class="text-sm font-medium text-petroleo hover:text-teal360 transition">Oferta</a>
-      <a href="#faq"      class="text-sm font-medium text-petroleo hover:text-teal360 transition">FAQ</a>
-      <a href="https://wa.me/5588992742862" class="hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-petroleo">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="text-emerald-500"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.671 5.494l-.999 3.648 3.817-1.001z"/></svg>
-        (88) 99274-2862
-      </a>
-      <button onclick="openQuiz()" class="bg-solar text-petroleo font-bold text-sm px-5 py-2.5 rounded-full hover:brightness-105 transition shadow-md">
-        Fazer Diagnóstico
-      </button>
-    </div>
-
-    <!-- Mobile burger -->
-    <button id="burger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menu">
-      <span class="block w-6 h-0.5 bg-petroleo"></span>
-      <span class="block w-6 h-0.5 bg-petroleo"></span>
-      <span class="block w-6 h-0.5 bg-petroleo"></span>
-    </button>
+<!-- Loading overlay -->
+<div id="loader" class="loader-overlay" aria-hidden="true">
+  <div class="text-center">
+    <img src="assets/logo-white.png" alt="Óticas Olhar 360°" class="h-11 lg:h-[52px] mx-auto mb-6 opacity-90" />
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    <div class="text-white/60 mt-4 eyebrow">Qualidade que representa</div>
   </div>
+</div>
 
-  <!-- Mobile menu -->
-  <div id="mm" class="mm md:hidden bg-white border-t border-slate-100">
-    <div class="px-5 py-4 flex flex-col gap-3">
-      <a href="#problema" class="text-petroleo font-medium">Sintomas</a>
-      <a href="#oferta"   class="text-petroleo font-medium">Oferta</a>
-      <a href="#faq"      class="text-petroleo font-medium">FAQ</a>
-      <a href="https://wa.me/5588992742862" class="text-petroleo font-medium">WhatsApp (88) 99274-2862</a>
-      <button onclick="openQuiz()" class="bg-solar text-petroleo font-bold py-3 rounded-full mt-2">
-        🟡 Fazer Diagnóstico
+<!-- Custom cursor -->
+
+<!-- Header -->
+<header id="siteHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10 py-4 flex items-center justify-between">
+    <a href="#hero" class="flex items-center" aria-label="Óticas Olhar 360 - Início">
+      <img id="headerLogo" src="assets/logo-white.png" alt="Óticas Olhar 360°" class="h-11 lg:h-[52px] transition-all" />
+    </a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Navegação principal">
+      <a href="#sobre" class="nav-link text-white" data-section="sobre">Sobre nós</a>
+      <a href="#gold" class="nav-link text-white" data-section="gold">360Gold</a>
+      <a href="#produtos" class="nav-link text-white" data-section="produtos">Produtos</a>
+      <a href="#exame" class="nav-link text-white" data-section="exame">Exame</a>
+      <a href="#loja" class="nav-link text-white" data-section="loja">Loja</a>
+      <a href="#contato" class="nav-link text-white" data-section="contato">Contato</a>
+    </nav>
+    <div class="hidden lg:block">
+      <button onclick="openModal()" class="btn btn-primary cta-pulse" aria-label="Agende seu exame">
+        Agendar exame
+        <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
       </button>
     </div>
+    <button id="mobileToggle" class="lg:hidden text-white p-2" aria-label="Abrir menu">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
   </div>
 </header>
 
-<!-- ====================================================== -->
-<!-- HERO                                                    -->
-<!-- ====================================================== -->
-<section class="hero-bg pt-28 pb-16 lg:pt-36 lg:pb-24 relative overflow-hidden">
-  <!-- floating decorations -->
-  <div class="hidden md:block absolute top-32 left-12 w-16 h-16 rounded-full bg-teal360/20 float-slow"></div>
-  <div class="hidden md:block absolute bottom-20 left-1/3 w-10 h-10 rounded-full bg-solar/30 float-fast"></div>
-  <div class="hidden md:block absolute top-44 right-10 text-solar text-5xl float-slow font-black">✱</div>
+<!-- Mobile menu -->
+<div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-azul-bg lg:hidden flex flex-col" aria-hidden="true">
+  <div class="flex items-center justify-between px-5 py-4">
+    <img src="assets/logo-white.png" alt="" class="h-10" />
+    <button id="mobileClose" class="text-white p-2" aria-label="Fechar menu">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="flex-1 flex flex-col items-start gap-6 px-8 pt-8" aria-label="Navegação móvel">
+    <a href="#sobre" class="text-white text-3xl font-extrabold uppercase tracking-tight">Sobre nós</a>
+    <a href="#gold" class="text-white text-3xl font-extrabold uppercase tracking-tight">360Gold</a>
+    <a href="#produtos" class="text-white text-3xl font-extrabold uppercase tracking-tight">Produtos</a>
+    <a href="#exame" class="text-white text-3xl font-extrabold uppercase tracking-tight">Exame</a>
+    <a href="#loja" class="text-white text-3xl font-extrabold uppercase tracking-tight">Loja</a>
+    <a href="#contato" class="text-white text-3xl font-extrabold uppercase tracking-tight">Contato</a>
+    <button onclick="openModal()" class="btn btn-primary mt-8">Agendar exame <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+  </nav>
+</div>
 
-  <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-    <!-- Left -->
-    <div class="reveal">
-      <span class="inline-flex items-center gap-2 bg-tealSoft text-petroleo text-xs lg:text-sm font-bold tracking-wider uppercase px-4 py-2 rounded-full">
-        ✨ Diagnóstico Gratuito · 30 segundos
-      </span>
+<!-- HERO -->
+<section id="hero" data-screen-label="01 Hero" class="relative overflow-hidden bg-azul-bg text-white">
+  <div class="absolute inset-0 hero-bg-mosaic" aria-hidden="true"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(39,89,137,.85) 0%, rgba(26,61,92,.92) 100%);" aria-hidden="true"></div>
 
-      <h1 class="font-display font-black text-petroleo text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] mt-6">
-        A maioria das pessoas em <span class="text-teal360">Camocim</span> está
-        <span class="mark-yellow">forçando a vista</span> todos os dias —
-        e descobre tarde demais.
-      </h1>
-
-      <p class="text-lg lg:text-xl text-inkSoft mt-6 leading-relaxed max-w-xl">
-        Faça o <strong class="text-petroleo">Diagnóstico 360°</strong> de 30 segundos e descubra,
-        em 6 perguntas simples, se seus olhos estão silenciosamente pedindo socorro.
-      </p>
-
-      <button onclick="openQuiz()" class="cta-pulse mt-8 inline-flex items-center gap-3 bg-solar text-petroleo font-display font-extrabold text-base lg:text-lg px-7 py-5 rounded-2xl shadow-cta hover:brightness-105 transition">
-        🟡 QUERO MEU DIAGNÓSTICO 360° AGORA
-        <span class="text-2xl leading-none">→</span>
-      </button>
-
-      <!-- Trust line -->
-      <div class="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-sm text-inkSoft">
-        <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg> Análise gratuita</span>
-        <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg> 100% online</span>
-        <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg> Resultado na hora</span>
-      </div>
-
-      <!-- Social count -->
-      <div class="mt-5 flex items-center gap-3">
-        <div class="flex -space-x-2">
-          <div class="w-8 h-8 rounded-full bg-teal360 border-2 border-white flex items-center justify-center text-white text-xs font-bold">M</div>
-          <div class="w-8 h-8 rounded-full bg-solar border-2 border-white flex items-center justify-center text-petroleo text-xs font-bold">C</div>
-          <div class="w-8 h-8 rounded-full bg-petroleo border-2 border-white flex items-center justify-center text-white text-xs font-bold">J</div>
-          <div class="w-8 h-8 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center text-petroleo text-xs font-bold">+</div>
+  <div id="heroContent" class="relative max-w-7xl mx-auto px-5 lg:px-10 pt-32 lg:pt-36 pb-32 lg:pb-44">
+    <!-- Variant A (default): Text left, photo right -->
+    <div id="heroVariantA" class="hero-variant grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-6 xl:col-span-6">
+        <div class="reveal inline-flex items-center gap-2 bg-amarelo text-azul-escuro px-4 py-2 rounded-full eyebrow mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-azul-escuro"></span>
+          Um novo conceito de ótica para Camocim
         </div>
-        <p class="text-xs lg:text-sm text-slate-500"><strong class="text-petroleo">+1.847 pessoas</strong> em Camocim já fizeram esta semana</p>
+        <h1 class="reveal delay-1 headline text-white text-[36px] sm:text-[56px] lg:text-[80px] xl:text-[96px]">
+          Qualidade<br/>que <span class="text-amarelo">representa</span>.
+        </h1>
+        <p class="reveal delay-2 mt-7 text-white/85 text-base lg:text-lg max-w-xl">
+          Agende sua avaliação visual e descubra o óculos ideal para o seu estilo, sua rotina e a sua identidade. Aqui, cada detalhe foi pensado para oferecer mais que um produto — entregar confiança, conforto e presença.
+        </p>
+        <div class="reveal delay-3 mt-10 flex flex-col sm:flex-row gap-4">
+          <button onclick="openModal()" class="btn btn-primary cta-pulse">
+            Agende seu exame agora
+            <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          </button>
+          <button onclick="openWhatsApp('default')" class="btn btn-outline">
+            Fale com um consultor
+          </button>
+        </div>
+        <div class="reveal delay-4 mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs uppercase tracking-[0.15em] text-white/60 font-bold">
+          <span class="w-2 h-2 bg-amarelo rounded-full"></span>
+          <span>Camocim</span><span class="opacity-40">·</span>
+          <span>Granja</span><span class="opacity-40">·</span>
+          <span>Barroquinha</span><span class="opacity-40">·</span>
+          <span>Chaval</span>
+        </div>
       </div>
-    </div>
-
-    <!-- Right — phone mockup -->
-    <div class="reveal flex justify-center lg:justify-end relative">
-      <div class="relative">
-        <!-- decorative ring -->
-        <div class="absolute -top-8 -right-8 w-24 h-24 rounded-full border-4 border-dashed border-teal360/40 float-slow"></div>
-        <div class="absolute -bottom-6 -left-10 w-16 h-16 rounded-full bg-solar/30 float-fast"></div>
-        <div class="absolute top-1/2 -left-12 text-teal360 text-4xl font-black float-slow">✱</div>
-
-        <div class="phone-shell shadow-phone">
-          <div class="phone-screen">
-            <div class="phone-notch"></div>
-            <!-- Inner quiz preview -->
-            <div class="px-5 pt-12 pb-5 h-full flex flex-col">
-              <!-- Mini logo -->
-              <div class="flex items-center mb-3">
-                <img src="assets/logo-olhar360.png" alt="Óticas Olhar 360°" class="logo-img-xs" style="width: 6px; height: 65px" />
-              </div>
-              <!-- progress -->
-              <div class="flex gap-1 mb-4">
-                <div class="seg on"></div>
-                <div class="seg"></div><div class="seg"></div>
-                <div class="seg"></div><div class="seg"></div><div class="seg"></div>
-              </div>
-              <p class="text-[11px] tracking-widest font-bold text-teal360 uppercase">Pergunta 1 de 6</p>
-              <h3 class="font-display font-extrabold text-petroleo text-[20px] leading-tight mt-2">
-                Você sente cansaço nos olhos no fim do dia?
-              </h3>
-
-              <div class="mt-4 space-y-2.5 flex-1">
-                <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-emerald-200 bg-emerald-50">
-                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
-                  <span class="text-[13px] font-semibold text-petroleo">Quase nunca</span>
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-amber-200 bg-amber-50">
-                  <span class="w-3 h-3 rounded-full bg-amber-400"></span>
-                  <span class="text-[13px] font-semibold text-petroleo">Às vezes</span>
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-orange-300 bg-orange-50">
-                  <span class="w-3 h-3 rounded-full bg-orange-500"></span>
-                  <span class="text-[13px] font-semibold text-petroleo">Quase todo dia</span>
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-xl border-2 border-rose-300 bg-rose-50">
-                  <span class="w-3 h-3 rounded-full bg-rose-500"></span>
-                  <span class="text-[13px] font-semibold text-petroleo">Todo dia, forte</span>
-                </div>
-              </div>
-
-              <button class="w-full mt-3 bg-solar text-petroleo font-display font-extrabold py-3 rounded-xl text-sm">
-                Continuar →
-              </button>
+      <div class="lg:col-span-6 xl:col-span-6">
+        <div class="hero-collage relative aspect-[901/922] max-w-[950px] ml-auto reveal scale-in delay-2">
+          <div class="absolute inset-0 rounded-[36px] overflow-hidden parallax" data-speed="0.04">
+            <img src="assets/homem.png" alt="Atendente da Óticas Olhar 360° em frente à loja em Camocim" class="w-full h-full object-contain" loading="lazy" />
+          </div>
+          <div class="absolute -bottom-[48px] left-[66px] w-24 h-24 rounded-full bg-amarelo flex items-center justify-center text-azul-escuro shadow-xl cta-pulse">
+            <div class="text-center leading-tight">
+              <div class="text-2xl font-extrabold">+12</div>
+              <div class="text-[10px] uppercase tracking-widest font-extrabold">anos</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ====================================================== -->
-<!-- SECTION 3 — PROBLEM IDENTIFICATION                      -->
-<!-- ====================================================== -->
-<section id="problema" class="py-20 lg:py-28 bg-white">
-  <div class="max-w-5xl mx-auto px-5 lg:px-8 text-center">
-    <h2 class="reveal font-display font-extrabold text-petroleo text-3xl sm:text-4xl lg:text-5xl leading-tight">
-      Você se reconhece em <span class="text-teal360">algum desses sinais?</span>
-    </h2>
-    <p class="reveal text-inkSoft text-lg mt-4 max-w-2xl mx-auto">
-      Sintomas pequenos que, somados, são o aviso silencioso de que sua visão está pedindo atenção.
-    </p>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 text-left">
-      <!-- card -->
-      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
-        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">👁️</div>
-        <p class="font-display font-bold text-petroleo text-lg leading-snug">Olhos pesados, ardendo ou lacrimejando no fim do dia</p>
+    <!-- Variant B: Script + circular composition (PDF p.1 ref) -->
+    <div id="heroVariantB" class="hero-variant hidden grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-6 relative z-10">
+        <h1 class="reveal headline text-white text-[44px] sm:text-[64px] lg:text-[88px]">
+          <span class="script-font block text-amarelo text-[68px] sm:text-[96px] lg:text-[140px] -mb-2">Qualidade que</span>
+          <span class="block">Representa</span>
+        </h1>
+        <div class="reveal delay-1 inline-flex items-center gap-2 bg-amarelo text-azul-escuro px-4 py-2 rounded-full eyebrow mt-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-azul-escuro"></span>
+          Um novo conceito de ótica para Camocim
+        </div>
+        <p class="reveal delay-2 mt-6 text-white/85 text-base lg:text-lg max-w-md">
+          Modelos únicos, qualidade de verdade e estilo que destaca.
+        </p>
+        <div class="reveal delay-3 mt-10 flex flex-col sm:flex-row gap-4">
+          <button onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})" class="btn btn-dark">Conheça os modelos <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+          <button onclick="openWhatsApp('default')" class="btn btn-outline">Fale com um consultor</button>
+        </div>
       </div>
-      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
-        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">📱</div>
-        <p class="font-display font-bold text-petroleo text-lg leading-snug">Mais de 4 horas por dia em telas</p>
-      </div>
-      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
-        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">🤕</div>
-        <p class="font-display font-bold text-petroleo text-lg leading-snug">Dores de cabeça frequentes sem explicação</p>
-      </div>
-      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
-        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">🔍</div>
-        <p class="font-display font-bold text-petroleo text-lg leading-snug">Aperta os olhos pra ler placas e mensagens</p>
-      </div>
-      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
-        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">😴</div>
-        <p class="font-display font-bold text-petroleo text-lg leading-snug">Acorda com a vista cansada</p>
-      </div>
-      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-6">
-        <div class="w-12 h-12 rounded-xl bg-tealSoft flex items-center justify-center text-teal360 text-2xl mb-4">📅</div>
-        <p class="font-display font-bold text-petroleo text-lg leading-snug">Mais de 2 anos sem fazer exame de vista</p>
+      <div class="lg:col-span-6 relative">
+        <!-- Diagonal yellow rays -->
+        <svg class="absolute inset-0 w-full h-full -z-0" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+          <line x1="0" y1="100" x2="600" y2="500" stroke="#EBBF32" stroke-width="3" opacity="0.5"/>
+          <line x1="0" y1="200" x2="600" y2="600" stroke="#EBBF32" stroke-width="2" opacity="0.35"/>
+          <line x1="100" y1="0" x2="500" y2="600" stroke="#EBBF32" stroke-width="2" opacity="0.4"/>
+        </svg>
+        <div class="reveal scale-in relative aspect-square max-w-[520px] mx-auto">
+          <div class="absolute inset-0 rounded-full bg-azul-claro flex items-center justify-center">
+            <!-- Two glasses placeholders -->
+            <svg class="absolute" width="62%" viewBox="0 0 200 80" fill="none" style="top: 28%; left: 8%;" aria-hidden="true">
+              <circle cx="50" cy="40" r="34" fill="none" stroke="#1A3D5C" stroke-width="6"/>
+              <circle cx="150" cy="40" r="34" fill="none" stroke="#1A3D5C" stroke-width="6"/>
+              <path d="M84 40 L116 40 M16 30 L4 24 M184 30 L196 24" stroke="#1A3D5C" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+            <svg class="absolute" width="58%" viewBox="0 0 200 80" fill="none" style="top: 50%; left: 18%;" aria-hidden="true">
+              <path d="M10 50 L70 30 L90 40 L110 40 L130 30 L190 50" stroke="#FFFFFF" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <ellipse cx="50" cy="40" rx="32" ry="20" fill="#FFFFFF" opacity="0.85" stroke="#FFFFFF" stroke-width="3"/>
+              <ellipse cx="150" cy="40" rx="32" ry="20" fill="#FFFFFF" opacity="0.85" stroke="#FFFFFF" stroke-width="3"/>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Alert box -->
-    <div class="reveal mt-10 bg-petroleo text-white rounded-2xl p-6 lg:p-8 flex items-start gap-4 text-left shadow-cardHi">
-      <span class="text-3xl">⚠️</span>
-      <p class="text-base lg:text-lg leading-relaxed">
-        <strong class="text-solar">Marcou 2 ou mais?</strong> Sua visão está dando um aviso silencioso.
-        E quando o aviso vira sintoma, o estrago pode já estar feito.
+    <!-- Variant C: Editorial split (asymmetric) -->
+    <div id="heroVariantC" class="hero-variant hidden grid lg:grid-cols-12 gap-8 items-end">
+      <div class="lg:col-span-7">
+        <div class="reveal eyebrow text-amarelo mb-6">Camocim · Granja · Barroquinha · Chaval</div>
+        <h1 class="reveal delay-1 headline text-white text-[40px] sm:text-[68px] lg:text-[110px]">Óticas<br/><span class="text-amarelo">Olhar</span> 360°</h1>
+        <div class="reveal delay-2 mt-6 max-w-md text-white/85 text-base">
+          Modelos únicos, qualidade de verdade e estilo que destaca. Aqui, cada escolha tem propósito.
+        </div>
+        <div class="reveal delay-3 mt-8 flex flex-wrap gap-4">
+          <button onclick="openModal()" class="btn btn-primary cta-pulse">Agendar exame <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+          <button onclick="openWhatsApp('default')" class="btn btn-outline">WhatsApp</button>
+        </div>
+      </div>
+      <div class="lg:col-span-5 relative">
+        <div class="reveal scale-in aspect-[3/4] rounded-[36px] overflow-hidden bg-azul-escuro parallax" data-speed="0.05">
+          <img src="assets/homem.png" alt="" class="w-full h-full object-cover object-top" loading="lazy"/>
+        </div>
+        <div class="reveal delay-3 absolute -top-6 -left-6 bg-amarelo text-azul-escuro px-5 py-3 rounded-2xl eyebrow shadow-xl">
+          Qualidade que representa
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave bottom -->
+  <svg class="wave-divider absolute bottom-0 left-0 w-full" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wave-anim wave-anim-back" fill="#FFFFFF" fill-opacity="0.18" d="M0,140 C260,40 520,200 820,120 C1100,50 1280,180 1440,90 C1700,40 1960,200 2260,120 C2540,50 2720,180 2880,90 L2880,200 L0,200 Z"></path>
+    <path class="wave-anim wave-anim-front" fill="#FFFFFF" d="M0,170 C320,80 600,220 900,150 C1180,90 1300,200 1440,140 C1760,80 2040,220 2340,150 C2620,90 2740,200 2880,140 L2880,200 L0,200 Z"></path>
+  </svg>
+</section>
+
+<!-- SOBRE / Mais que óculos -->
+<section id="sobre" data-screen-label="02 Sobre" class="relative bg-white py-24 lg:py-32 overflow-hidden">
+  <!-- Decorativos animados -->
+  <div class="absolute top-20 left-8 w-3 h-3 rounded-full bg-amarelo float-y" aria-hidden="true"></div>
+  <div class="absolute top-48 left-[10%] w-2 h-2 rounded-full bg-azul-claro float-y delay-1k" aria-hidden="true"></div>
+  <div class="absolute bottom-32 left-16 w-4 h-4 rounded-full bg-amarelo/60 float-yx delay-2k" aria-hidden="true"></div>
+  <div class="absolute top-[35%] right-[6%] w-24 h-24 rounded-full border-2 border-amarelo/30 spin-slow" aria-hidden="true"></div>
+  <div class="absolute top-1/2 right-12 w-2 h-2 rounded-full bg-azul-bg twinkle delay-3k" aria-hidden="true"></div>
+  <div class="absolute bottom-20 right-[8%] w-3 h-3 rounded-full bg-amarelo twinkle delay-1k" aria-hidden="true"></div>
+  <!-- Óculos drift no canto -->
+  <svg class="hidden md:block absolute top-12 right-[12%] drift-slow" width="46" height="22" viewBox="0 0 100 40" fill="none" stroke="#6CA1B0" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+    <circle cx="22" cy="22" r="14"/><circle cx="78" cy="22" r="14"/><path d="M36 22h28"/><path d="M8 14L2 8M92 14l6-6"/>
+  </svg>
+  <div class="max-w-7xl mx-auto px-5 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-6">
+      <div class="reveal eyebrow text-azul-claro mb-4 text-[17px]">Nossa filosofia</div>
+      <h2 class="reveal delay-1 headline text-azul-escuro text-[31px] sm:text-[39px] lg:text-[47px] xl:text-[55px] leading-[0.95]">Mais que óculos.<br/><span class="text-azul-claro whitespace-nowrap">Representatividade.</span></h2>
+      <p class="reveal delay-2 mt-6 text-azul-escuro/75 max-w-md">
+        Na Olhar 360, acreditamos que enxergar bem é fundamental. Mas usar algo que realmente represente quem você é faz toda a diferença. Por isso unimos:
       </p>
     </div>
-  </div>
-</section>
-
-<!-- ====================================================== -->
-<!-- SECTION 4 — INCONVENIENT TRUTH                          -->
-<!-- ====================================================== -->
-<section class="py-20 lg:py-28 bg-graybg">
-  <div class="max-w-5xl mx-auto px-5 lg:px-8 text-center">
-    <h2 class="reveal font-display font-extrabold text-petroleo text-3xl sm:text-4xl lg:text-[44px] leading-tight max-w-3xl mx-auto">
-      A maioria das pessoas só vai ao oftalmologista quando <span class="text-teal360">já não enxerga.</span>
-    </h2>
-    <p class="reveal text-inkSoft text-lg lg:text-xl mt-6 max-w-2xl mx-auto leading-relaxed">
-      O olho humano é um órgão que se <strong class="text-petroleo">ADAPTA</strong>. Ele compensa, força, ajusta —
-      até que um dia simplesmente para de compensar. Quando isso acontece,
-      boa parte dos danos não tem mais como reverter.
-    </p>
-
-    <!-- Stats -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
-      <div class="reveal text-left">
-        <div class="stat-num text-6xl">70%</div>
-        <p class="text-inkSoft text-sm mt-3 leading-snug">das pessoas têm algum erro refrativo <strong class="text-petroleo">não corrigido</strong></p>
-      </div>
-      <div class="reveal text-left">
-        <div class="stat-num text-6xl">+8h</div>
-        <p class="text-inkSoft text-sm mt-3 leading-snug">por dia é o tempo médio em telas no <strong class="text-petroleo">Brasil</strong></p>
-      </div>
-      <div class="reveal text-left">
-        <div class="stat-num text-6xl">2 anos</div>
-        <p class="text-inkSoft text-sm mt-3 leading-snug">tempo médio que se <strong class="text-petroleo">adia</strong> o exame de vista</p>
-      </div>
-      <div class="reveal text-left">
-        <div class="stat-num text-6xl">85%</div>
-        <p class="text-inkSoft text-sm mt-3 leading-snug">dos casos têm <strong class="text-petroleo">solução simples</strong> se detectados cedo</p>
-      </div>
+    <div class="lg:col-span-6 grid sm:grid-cols-2 gap-4">
+      <div class="reveal delay-1 card-soft p-7 flex gap-4 items-start"><span class="w-10 h-10 rounded-full bg-amarelo text-azul-escuro flex items-center justify-center font-extrabold flex-none">✓</span><div><div class="font-extrabold uppercase tracking-tight">Atendimento humanizado</div><div class="text-sm text-azul-escuro/65 mt-1">Cada cliente é único, cada escolha é cuidada.</div></div></div>
+      <div class="reveal delay-2 card-soft p-7 flex gap-4 items-start"><span class="w-10 h-10 rounded-full bg-amarelo text-azul-escuro flex items-center justify-center font-extrabold flex-none">✓</span><div><div class="font-extrabold uppercase tracking-tight">Marcas reconhecidas</div><div class="text-sm text-azul-escuro/65 mt-1">Variedade nacional e internacional.</div></div></div>
+      <div class="reveal delay-3 card-soft p-7 flex gap-4 items-start"><span class="w-10 h-10 rounded-full bg-amarelo text-azul-escuro flex items-center justify-center font-extrabold flex-none">✓</span><div><div class="font-extrabold uppercase tracking-tight">Tecnologia avançada</div><div class="text-sm text-azul-escuro/65 mt-1">Lentes Zeiss, Hoya, Essilor, Kodak, Transitions.</div></div></div>
+      <div class="reveal delay-4 card-soft p-7 flex gap-4 items-start"><span class="w-10 h-10 rounded-full bg-amarelo text-azul-escuro flex items-center justify-center font-extrabold flex-none">✓</span><div><div class="font-extrabold uppercase tracking-tight">Design sofisticado</div><div class="text-sm text-azul-escuro/65 mt-1">Atual, autoral e adequado ao seu estilo.</div></div></div>
+      <div class="reveal delay-5 card-soft p-7 flex gap-4 items-start sm:col-span-2"><span class="w-10 h-10 rounded-full bg-amarelo text-azul-escuro flex items-center justify-center font-extrabold flex-none">✓</span><div><div class="font-extrabold uppercase tracking-tight">Condições acessíveis</div><div class="text-sm text-azul-escuro/65 mt-1">Premium não significa inacessível — parcelamos para caber no seu plano.</div></div></div>
     </div>
   </div>
-</section>
 
-<!-- ====================================================== -->
-<!-- SECTION 5 — SOLUTION (quiz pitch)                       -->
-<!-- ====================================================== -->
-<section class="petro-bg py-20 lg:py-28 text-white relative overflow-hidden">
-  <div class="absolute top-10 right-10 text-solar text-6xl font-black float-slow opacity-50">✱</div>
-  <div class="absolute bottom-12 left-10 w-20 h-20 rounded-full border-4 border-teal360/40 float-fast"></div>
-
-  <div class="max-w-4xl mx-auto px-5 lg:px-8 text-center">
-    <span class="reveal inline-flex items-center gap-2 bg-solar text-petroleo text-xs lg:text-sm font-extrabold tracking-wider uppercase px-4 py-2 rounded-full">
-      🎯 Exclusivo Óticas Olhar 360°
-    </span>
-
-    <h2 class="reveal font-display font-black text-white text-3xl sm:text-4xl lg:text-[56px] leading-[1.05] mt-6">
-      Diagnóstico 360°<br/>em <span class="text-solar">30 segundos</span>
-    </h2>
-    <p class="reveal text-white/70 text-lg lg:text-xl mt-5 max-w-2xl mx-auto leading-relaxed">
-      6 perguntas. Resultado personalizado. E uma surpresa pra quem se encaixa em
-      um dos perfis de risco.
-    </p>
-
-    <!-- bullets -->
-    <div class="grid sm:grid-cols-2 gap-5 mt-12 text-left max-w-3xl mx-auto">
-      <div class="reveal flex items-start gap-3 p-5 rounded-2xl bg-white/5 border border-white/10">
-        <span class="text-solar text-2xl leading-none mt-0.5">✓</span>
-        <p class="text-white text-base lg:text-lg">Em qual dos <strong>3 perfis de risco</strong> você se encaixa</p>
-      </div>
-      <div class="reveal flex items-start gap-3 p-5 rounded-2xl bg-white/5 border border-white/10">
-        <span class="text-solar text-2xl leading-none mt-0.5">✓</span>
-        <p class="text-white text-base lg:text-lg">Quais sinais do seu dia indicam <strong>fadiga visual</strong></p>
-      </div>
-      <div class="reveal flex items-start gap-3 p-5 rounded-2xl bg-white/5 border border-white/10">
-        <span class="text-solar text-2xl leading-none mt-0.5">✓</span>
-        <p class="text-white text-base lg:text-lg">O que fazer <strong>AGORA</strong> pra evitar problemas maiores</p>
-      </div>
-      <div class="reveal flex items-start gap-3 p-5 rounded-2xl bg-white/5 border border-white/10">
-        <span class="text-solar text-2xl leading-none mt-0.5">✓</span>
-        <p class="text-white text-base lg:text-lg">Liberação do <strong class="text-solar">EXAME GRÁTIS + ÓCULOS DE SOL DE BRINDE</strong></p>
-      </div>
-    </div>
-
-    <button onclick="openQuiz()" class="cta-pulse mt-12 inline-flex items-center gap-3 bg-solar text-petroleo font-display font-extrabold text-base lg:text-lg px-8 py-5 rounded-2xl shadow-cta">
-      🟡 COMEÇAR MEU DIAGNÓSTICO 360° GRATUITO
-      <span class="text-2xl leading-none">→</span>
-    </button>
-    <p class="reveal text-white/60 text-sm mt-4">30 segundos · Resultado imediato · Sem compromisso</p>
+  <!-- Stats counter row -->
+  <div class="max-w-7xl mx-auto px-5 lg:px-10 mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="reveal text-center p-6 rounded-2xl bg-cinza-respiro"><div class="headline text-azul-bg text-5xl lg:text-6xl" data-counter="12">0</div><div class="eyebrow text-azul-escuro/60 mt-2">Anos no mercado</div></div>
+    <div class="reveal delay-1 text-center p-6 rounded-2xl bg-cinza-respiro"><div class="headline text-azul-bg text-5xl lg:text-6xl" data-counter="8500">0</div><div class="eyebrow text-azul-escuro/60 mt-2">Clientes atendidos</div></div>
+    <div class="reveal delay-2 text-center p-6 rounded-2xl bg-cinza-respiro"><div class="headline text-azul-bg text-5xl lg:text-6xl" data-counter="40">0</div><div class="eyebrow text-azul-escuro/60 mt-2">Marcas disponíveis</div></div>
+    <div class="reveal delay-3 text-center p-6 rounded-2xl bg-cinza-respiro"><div class="headline text-azul-bg text-5xl lg:text-6xl"><span data-counter="98">0</span>%</div><div class="eyebrow text-azul-escuro/60 mt-2">Satisfação</div></div>
   </div>
+
+  <!-- Closing line -->
+  <div class="reveal max-w-4xl mx-auto px-5 lg:px-10 mt-20 text-center">
+    <div class="inline-block">
+      <div class="headline text-azul-bg text-3xl lg:text-5xl">Porque qualidade não é detalhe.</div>
+      <div class="headline text-amarelo text-3xl lg:text-5xl mt-2">É posicionamento.</div>
+    </div>
+  </div>
+
+  <svg class="wave-divider absolute bottom-0 left-0 w-full -mb-px" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wave-anim wave-anim-back" fill="#1A3D5C" fill-opacity="0.18" d="M0,90 C300,200 700,30 1100,160 C1280,210 1380,80 1440,150 C1740,200 2140,30 2540,160 C2720,210 2820,80 2880,150 L2880,200 L0,200 Z"></path>
+    <path class="wave-anim wave-anim-front" fill="#1A3D5C" d="M0,130 C260,30 700,210 1080,90 C1260,40 1360,180 1440,120 C1700,30 2140,210 2520,90 C2700,40 2800,180 2880,120 L2880,200 L0,200 Z"></path>
+  </svg>
 </section>
 
-<!-- ====================================================== -->
-<!-- SECTION 6 — SOCIAL PROOF                                -->
-<!-- ====================================================== -->
-<section class="py-20 lg:py-28 bg-white">
-  <div class="max-w-6xl mx-auto px-5 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto">
-      <h2 class="reveal font-display font-extrabold text-petroleo text-3xl sm:text-4xl lg:text-5xl leading-tight">
-        <span class="text-teal360">+1.800 pessoas</span> em Camocim já confiaram na Olhar 360°
-      </h2>
-      <p class="reveal text-inkSoft text-lg mt-4">Histórias reais de quem fez o diagnóstico e mudou a forma de enxergar o dia a dia.</p>
-    </div>
+<!-- 360GOLD (variants A B C via tweaks) -->
+<section id="gold" data-screen-label="03 360Gold" class="relative bg-azul-escuro text-white overflow-hidden">
+  <div class="absolute inset-0 gold-stripes" aria-hidden="true"></div>
+  <!-- Estrelas brilhando (decorativos premium) -->
+  <div class="absolute top-16 left-[8%] w-1.5 h-1.5 rounded-full bg-amarelo twinkle" aria-hidden="true"></div>
+  <div class="absolute top-32 left-[20%] w-1 h-1 rounded-full bg-white twinkle delay-2k" aria-hidden="true"></div>
+  <div class="absolute top-1/4 right-[10%] w-2 h-2 rounded-full bg-amarelo twinkle delay-1k" aria-hidden="true"></div>
+  <div class="absolute top-1/2 left-[6%] w-1 h-1 rounded-full bg-amarelo twinkle delay-3k" aria-hidden="true"></div>
+  <div class="absolute bottom-32 left-[15%] w-1.5 h-1.5 rounded-full bg-white twinkle" aria-hidden="true"></div>
+  <div class="absolute bottom-24 right-[15%] w-1 h-1 rounded-full bg-amarelo twinkle delay-2k" aria-hidden="true"></div>
+  <div class="absolute top-2/3 right-[25%] w-1.5 h-1.5 rounded-full bg-white twinkle delay-1k" aria-hidden="true"></div>
+  <!-- Anel dourado girando -->
+  <div class="absolute top-1/3 left-[3%] w-40 h-40 rounded-full border-2 border-amarelo/15 spin-slow" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-10 pt-0 pb-[140px] lg:pt-0 lg:pb-[200px]">
 
-    <div class="grid md:grid-cols-3 gap-6 mt-14">
-      <!-- Testimonial 1 -->
-      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-7">
-        <div class="flex gap-1 star text-lg">★★★★★</div>
-        <p class="text-petroleo text-base mt-4 italic leading-relaxed">
-          "Achei que era só cansaço de trabalho. Fiz o teste, fui na ótica e descobri que precisava
-          de óculos pra perto. As dores de cabeça sumiram em uma semana."
-        </p>
-        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-slate-100">
-          <div class="w-12 h-12 rounded-full bg-teal360 flex items-center justify-center text-white font-display font-extrabold">M</div>
-          <div>
-            <p class="font-display font-bold text-petroleo">Maria L.</p>
-            <p class="text-xs text-slate-500">38 anos · Camocim</p>
-          </div>
+    <!-- Gold Variant A: Split editorial -->
+    <div id="goldVariantA" class="gold-variant grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6">
+        <div class="reveal flex items-center gap-3 mb-6">
+          <div class="w-12 h-px bg-amarelo"></div>
+          <span class="eyebrow text-amarelo">Marca propia - 360Gold</span>
         </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-7">
-        <div class="flex gap-1 star text-lg">★★★★★</div>
-        <p class="text-petroleo text-base mt-4 italic leading-relaxed">
-          "Meu pai tem 67 e jurava que enxergava bem. Fiz ele responder o quiz no meu celular.
-          Resultado: alto risco. Hoje usa multifocal e voltou a ler o jornal."
-        </p>
-        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-slate-100">
-          <div class="w-12 h-12 rounded-full bg-solar flex items-center justify-center text-petroleo font-display font-extrabold">C</div>
-          <div>
-            <p class="font-display font-bold text-petroleo">Carlos R.</p>
-            <p class="text-xs text-slate-500">41 anos · Camocim</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div class="reveal card-hover bg-white border border-slate-100 shadow-card rounded-2xl p-7">
-        <div class="flex gap-1 star text-lg">★★★★★</div>
-        <p class="text-petroleo text-base mt-4 italic leading-relaxed">
-          "O óculos de sol com grau de brinde me convenceu. Mas o atendimento da Olhar 360°
-          fez eu virar cliente fixa."
-        </p>
-        <div class="flex items-center gap-3 mt-6 pt-5 border-t border-slate-100">
-          <div class="w-12 h-12 rounded-full bg-petroleo flex items-center justify-center text-white font-display font-extrabold">J</div>
-          <div>
-            <p class="font-display font-bold text-petroleo">Juliana M.</p>
-            <p class="text-xs text-slate-500">29 anos · Camocim</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====================================================== -->
-<!-- SECTION 7 — OFFER                                       -->
-<!-- ====================================================== -->
-<section id="oferta" class="offer-bg py-20 lg:py-28 relative overflow-hidden">
-  <div class="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-solar/30 blur-2xl"></div>
-  <div class="absolute -bottom-10 right-0 w-56 h-56 rounded-full bg-teal360/20 blur-2xl"></div>
-
-  <div class="max-w-4xl mx-auto px-5 lg:px-8 relative">
-    <!-- Card -->
-    <div class="reveal bg-white rounded-3xl shadow-cardHi border border-solar/30 p-8 lg:p-12">
-      <div class="flex flex-col items-center text-center">
-        <span class="inline-flex items-center gap-2 bg-petroleo text-solar text-xs lg:text-sm font-extrabold tracking-wider uppercase px-4 py-2 rounded-full">
-          🎁 Oferta exclusiva ao completar o quiz
-        </span>
-        <h2 class="font-display font-black text-petroleo text-3xl sm:text-4xl lg:text-5xl leading-[1.05] mt-6 max-w-3xl">
-          Exame 360° <span class="text-solar">GRÁTIS</span> + Óculos de Sol com Grau de <span class="mark-yellow">PRESENTE</span>
+        <h2 class="reveal delay-1 headline text-[44px] lg:text-[80px] leading-[0.9]" style="color: #ffffff">
+          <span class="text-amarelo">Qualidade</span><br/>que representa<br/>o nosso padrão.
         </h2>
+        <p class="reveal delay-2 mt-8 text-white/80 max-w-lg">
+          Nossa marca própria nasceu para traduzir aquilo que defendemos: design moderno, resistência, conforto e excelente custo-benefício. Cada modelo 360Gold carrega o compromisso de oferecer estilo com personalidade — sem abrir mão da qualidade.
+        </p>
+        <p class="reveal delay-3 mt-4 text-white/60 italic">Se você quer um óculos que represente quem você é, a escolha é clara.</p>
+        <div class="reveal delay-4 mt-10">
+          <button onclick="scrollToContact()" class="btn btn-primary">Conhecer coleção 360Gold <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+        </div>
+      </div>
+      <div class="lg:col-span-6">
+        <div class="reveal scale-in delay-2 relative aspect-square max-w-[520px] mx-auto">
+          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-amarelo to-azul-claro/30"></div>
+          <div class="absolute inset-6 rounded-full overflow-hidden bg-azul-bg flex items-end justify-center">
+            <img src="assets/homem.png" alt="" class="w-[110%] object-contain" loading="lazy"/>
+          </div>
+          <div class="absolute top-6 -right-4 bg-amarelo text-azul-escuro px-5 py-3 rounded-2xl shadow-xl rotate-3">
+            <div class="eyebrow">Coleção</div>
+            <div class="headline text-2xl">360Gold</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gold Variant B: Yellow background -->
+    <div id="goldVariantB" class="gold-variant hidden">
+      <div class="bg-amarelo text-azul-escuro rounded-[40px] p-10 lg:p-20 grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7">
+          <div class="reveal eyebrow mb-4">Marca própria</div>
+          <h2 class="reveal delay-1 headline text-[44px] lg:text-[88px] leading-[0.9]">360Gold —<br/>nosso padrão.</h2>
+          <p class="reveal delay-2 mt-8 max-w-lg text-azul-escuro/85">
+            Design moderno, resistência, conforto e excelente custo-benefício. Cada modelo carrega o compromisso de oferecer estilo com personalidade — sem abrir mão da qualidade.
+          </p>
+          <button onclick="scrollToContact()" class="reveal delay-3 btn btn-dark mt-10">Conhecer coleção <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="reveal scale-in delay-2 aspect-[3/4] rounded-3xl overflow-hidden bg-azul-bg flex items-end justify-center">
+            <img src="assets/homem.png" alt="" class="w-[110%] object-contain" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gold Variant C: Showcase grid -->
+    <div id="goldVariantC" class="gold-variant hidden">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="reveal eyebrow text-amarelo mb-4">Marca própria</div>
+        <h2 class="reveal delay-1 headline text-[44px] lg:text-[80px]"><span class="text-amarelo">360Gold</span></h2>
+        <p class="reveal delay-2 mt-6 text-white/80">Design moderno, resistência, conforto e excelente custo-benefício — em cada modelo.</p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="reveal delay-1 aspect-square rounded-3xl bg-azul-bg/60 border border-white/10 flex items-center justify-center p-6 hover:border-amarelo transition">
+          <div class="text-center"><div class="text-4xl mb-3">⌐◑‿◐</div><div class="eyebrow text-amarelo">Aviador</div></div>
+        </div>
+        <div class="reveal delay-2 aspect-square rounded-3xl bg-amarelo text-azul-escuro flex items-center justify-center p-6">
+          <div class="text-center"><div class="headline text-3xl">360</div><div class="headline text-3xl text-azul-bg">Gold</div></div>
+        </div>
+        <div class="reveal delay-3 aspect-square rounded-3xl bg-azul-bg/60 border border-white/10 flex items-center justify-center p-6 hover:border-amarelo transition">
+          <div class="text-center"><div class="text-4xl mb-3">▭▭</div><div class="eyebrow text-amarelo">Quadrado</div></div>
+        </div>
+        <div class="reveal delay-4 aspect-square rounded-3xl bg-azul-bg/60 border border-white/10 flex items-center justify-center p-6 hover:border-amarelo transition">
+          <div class="text-center"><div class="text-4xl mb-3">◯◯</div><div class="eyebrow text-amarelo">Redondo</div></div>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <button onclick="scrollToContact()" class="btn btn-primary">Conhecer coleção 360Gold <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wave-divider absolute bottom-0 left-0 w-full -mb-px" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wave-anim wave-anim-back" fill="#F4F6F8" fill-opacity="0.20" d="M0,160 C320,60 640,210 980,130 C1220,80 1340,180 1440,100 C1760,60 2080,210 2420,130 C2660,80 2780,180 2880,100 L2880,200 L0,200 Z"></path>
+    <path class="wave-anim wave-anim-front" fill="#F4F6F8" d="M0,180 C260,80 600,220 920,140 C1180,90 1300,210 1440,140 C1700,80 2040,220 2360,140 C2620,90 2740,210 2880,140 L2880,200 L0,200 Z"></path>
+  </svg>
+</section>
+
+<!-- PRODUTOS / Lentes e Armações - 3 blocos -->
+<section id="produtos" data-screen-label="04 Produtos" class="relative bg-cinza-respiro py-24 lg:py-32 overflow-hidden">
+  <!-- Decorativos animados Produtos -->
+  <div class="absolute top-24 left-[5%] w-32 h-32 rounded-full border-2 border-azul-claro/20 spin-slow" aria-hidden="true"></div>
+  <div class="absolute top-1/3 left-12 w-3 h-3 rounded-full bg-amarelo float-y delay-2k" aria-hidden="true"></div>
+  <div class="absolute bottom-40 right-[6%] w-20 h-20 rounded-full border border-amarelo/40 spin-slow delay-3k" style="animation-direction: reverse;" aria-hidden="true"></div>
+  <div class="absolute top-1/2 right-[3%] w-2 h-2 rounded-full bg-azul-bg twinkle" aria-hidden="true"></div>
+  <div class="absolute bottom-1/3 left-[8%] w-2 h-2 rounded-full bg-amarelo twinkle delay-1k" aria-hidden="true"></div>
+  <!-- Óculos pequeno flutuando -->
+  <svg class="hidden md:block absolute bottom-32 left-[3%] float-yx" width="40" height="20" viewBox="0 0 100 40" fill="none" stroke="#EBBF32" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+    <circle cx="22" cy="22" r="14"/><circle cx="78" cy="22" r="14"/><path d="M36 22h28"/><path d="M8 14L2 8M92 14l6-6"/>
+  </svg>
+  <svg class="hidden md:block absolute top-36 right-[8%] float-yx delay-2k" width="50" height="25" viewBox="0 0 100 40" fill="none" stroke="#6CA1B0" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+    <circle cx="22" cy="22" r="14"/><circle cx="78" cy="22" r="14"/><path d="M36 22h28"/><path d="M8 14L2 8M92 14l6-6"/>
+  </svg>
+
+  <!-- BLOCO 2.1 — Lentes feitas sob medida -->
+  <div class="max-w-7xl mx-auto px-5 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="reveal eyebrow text-azul-claro mb-4">Tecnologia em lentes</div>
+      <h2 class="reveal delay-1 headline text-azul-escuro text-[40px] lg:text-[60px]">Lentes feitas sob medida <span class="text-azul-bg">para você!</span></h2>
+    </div>
+
+    <div class="relative mt-16">
+      <!-- Ghost text behind -->
+      <div aria-hidden="true" class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="headline text-azul-bg/[0.06] text-[80px] lg:text-[180px] whitespace-nowrap select-none">OLHAR 360°</div>
       </div>
 
-      <!-- Value stack -->
-      <div class="mt-10 bg-graybg rounded-2xl p-6 lg:p-8 border border-slate-100">
-        <ul class="divide-y divide-slate-200">
-          <li class="flex items-center justify-between py-3 gap-4">
-            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Exame de vista completo</span>
-            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 200</span>
+      <div class="relative grid grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="reveal card-soft p-7 text-center">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-5" style="background: rgba(108,161,176,.2);">
+            <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#275989" stroke-width="2" stroke-linecap="round"><path d="M4 16c4-8 20-8 24 0c-4 8-20 8-24 0z"/><circle cx="16" cy="16" r="5"/><path d="M11 11l3 3M19 19l3 3" opacity="0.6"/></svg>
+          </div>
+          <div class="font-extrabold uppercase tracking-tight text-azul-escuro">Antirreflexo</div>
+          <p class="text-sm text-azul-escuro/65 mt-2 leading-relaxed">Reduz reflexos e melhora a visão em ambientes com luz intensa.</p>
+        </div>
+        <div class="reveal delay-1 card-soft p-7 text-center">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-5" style="background: rgba(108,161,176,.2);">
+            <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#275989" stroke-width="2" stroke-linecap="round"><circle cx="16" cy="16" r="6"/><path d="M16 3v3M16 26v3M3 16h3M26 16h3M6 6l2 2M24 24l2 2M6 26l2-2M24 8l2-2"/></svg>
+          </div>
+          <div class="font-extrabold uppercase tracking-tight text-azul-escuro">Fotossensíveis</div>
+          <p class="text-sm text-azul-escuro/65 mt-2 leading-relaxed">Lentes que se adaptam automaticamente à luz, ideais para quem se move entre ambientes internos e externos.</p>
+        </div>
+        <div class="reveal delay-2 card-soft p-7 text-center">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-5" style="background: rgba(108,161,176,.2);">
+            <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#275989" stroke-width="2" stroke-linecap="round"><rect x="6" y="8" width="20" height="14" rx="2"/><path d="M14 26h4M12 26h8"/><path d="M10 14l4 4 8-8" opacity="0.6"/></svg>
+          </div>
+          <div class="font-extrabold uppercase tracking-tight text-azul-escuro">Filtro Azul</div>
+          <p class="text-sm text-azul-escuro/65 mt-2 leading-relaxed">Protege contra os danos da luz azul emitida por telas de computadores e celulares.</p>
+        </div>
+        <div class="reveal delay-3 card-soft p-7 text-center">
+          <div class="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-5" style="background: rgba(108,161,176,.2);">
+            <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#275989" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="16" r="5"/><circle cx="21" cy="16" r="5"/><path d="M16 16h0M4 14l2-2M28 14l-2-2"/></svg>
+          </div>
+          <div class="font-extrabold uppercase tracking-tight text-azul-escuro">Lentes Digitais</div>
+          <p class="text-sm text-azul-escuro/65 mt-2 leading-relaxed">Tecnologia que proporciona visão mais nítida e confortável para necessidades específicas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 2.2 — Categorias circulares -->
+  <div class="max-w-7xl mx-auto px-5 lg:px-10 mt-32">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="reveal eyebrow text-azul-claro mb-4">Categorias</div>
+      <h2 class="reveal delay-1 headline text-azul-escuro text-[36px] lg:text-[56px]">Estilo que representa.<br/><span class="text-azul-bg">Tecnologia que protege.</span></h2>
+      <p class="reveal delay-2 mt-6 text-azul-escuro/70 max-w-2xl mx-auto">Trabalhamos com armações modernas, clássicas, infantis e solares — selecionadas para atender todos os estilos e personalidades.</p>
+    </div>
+
+    <div class="reveal delay-3 mt-14 grid grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Card 1: Sol -->
+      <div class="group cursor-pointer text-center">
+        <div class="aspect-square rounded-full bg-white shadow-[0_20px_50px_-24px_rgba(39,89,137,0.25)] overflow-hidden flex items-center justify-center transition duration-500 group-hover:scale-105 group-hover:shadow-[0_30px_60px_-20px_rgba(39,89,137,0.4)]">
+            <svg width="55%" viewBox="0 0 200 90" fill="none" aria-hidden="true">
+              <ellipse cx="55" cy="45" rx="36" ry="26" fill="#1A3D5C"/>
+              <ellipse cx="145" cy="45" rx="36" ry="26" fill="#1A3D5C"/>
+              <path d="M91 40 L109 40" stroke="#1A3D5C" stroke-width="5" stroke-linecap="round"/>
+              <path d="M19 30 L4 24 M181 30 L196 24" stroke="#275989" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="mt-5">
+          <div class="font-extrabold uppercase tracking-tight text-azul-bg text-lg">Óculos de Sol</div>
+          <p class="text-sm text-azul-escuro/65 mt-1">Proteção UV com estilo para todos os momentos.</p>
+          <button onclick="openWhatsApp('produto')" class="opacity-0 group-hover:opacity-100 transition mt-3 eyebrow text-azul-claro hover:text-azul-bg">Ver no WhatsApp →</button>
+        </div>
+      </div>
+      <!-- Card 2: Grau -->
+      <div class="group cursor-pointer text-center">
+        <div class="aspect-square rounded-full bg-white shadow-[0_20px_50px_-24px_rgba(39,89,137,0.25)] overflow-hidden flex items-center justify-center transition duration-500 group-hover:scale-105 group-hover:shadow-[0_30px_60px_-20px_rgba(39,89,137,0.4)]">
+            <svg width="55%" viewBox="0 0 200 90" fill="none" aria-hidden="true">
+              <ellipse cx="55" cy="45" rx="36" ry="26" fill="none" stroke="#275989" stroke-width="6"/>
+              <ellipse cx="145" cy="45" rx="36" ry="26" fill="none" stroke="#275989" stroke-width="6"/>
+              <path d="M91 40 L109 40" stroke="#275989" stroke-width="5" stroke-linecap="round"/>
+              <path d="M19 30 L4 24 M181 30 L196 24" stroke="#275989" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="mt-5">
+          <div class="font-extrabold uppercase tracking-tight text-azul-bg text-lg">Óculos de Grau</div>
+          <p class="text-sm text-azul-escuro/65 mt-1">Conforto visual com modelos que combinam com você.</p>
+          <button onclick="openWhatsApp('produto')" class="opacity-0 group-hover:opacity-100 transition mt-3 eyebrow text-azul-claro hover:text-azul-bg">Ver no WhatsApp →</button>
+        </div>
+      </div>
+      <!-- Card 3: Infantil -->
+      <div class="group cursor-pointer text-center">
+        <div class="aspect-square rounded-full bg-white shadow-[0_20px_50px_-24px_rgba(39,89,137,0.25)] overflow-hidden flex items-center justify-center transition duration-500 group-hover:scale-105 group-hover:shadow-[0_30px_60px_-20px_rgba(39,89,137,0.4)]">
+            <svg width="55%" viewBox="0 0 200 90" fill="none" aria-hidden="true">
+              <rect x="20" y="22" width="60" height="46" rx="14" fill="#EBBF32"/>
+              <rect x="120" y="22" width="60" height="46" rx="14" fill="#EBBF32"/>
+              <path d="M80 45 L120 45" stroke="#EBBF32" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="mt-5">
+          <div class="font-extrabold uppercase tracking-tight text-azul-bg text-lg">Óculos Infantil</div>
+          <p class="text-sm text-azul-escuro/65 mt-1">Leves, seguros e resistentes para todas as brincadeiras.</p>
+          <button onclick="openWhatsApp('produto')" class="opacity-0 group-hover:opacity-100 transition mt-3 eyebrow text-azul-claro hover:text-azul-bg">Ver no WhatsApp →</button>
+        </div>
+      </div>
+      <!-- Card 4: Gold -->
+      <div class="group cursor-pointer text-center">
+        <div class="aspect-square rounded-full bg-azul-escuro shadow-[0_20px_50px_-24px_rgba(39,89,137,0.25)] overflow-hidden flex items-center justify-center transition duration-500 group-hover:scale-105 group-hover:shadow-[0_30px_60px_-20px_rgba(39,89,137,0.4)]">
+            <svg width="55%" viewBox="0 0 200 90" fill="none" aria-hidden="true">
+              <ellipse cx="55" cy="45" rx="36" ry="26" fill="none" stroke="#EBBF32" stroke-width="6"/>
+              <ellipse cx="145" cy="45" rx="36" ry="26" fill="none" stroke="#EBBF32" stroke-width="6"/>
+              <path d="M91 40 L109 40" stroke="#EBBF32" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="mt-5">
+          <div class="font-extrabold uppercase tracking-tight text-azul-bg text-lg">Óculos 360Gold</div>
+          <p class="text-sm text-azul-escuro/65 mt-1">Elegância premium em armações exclusivas.</p>
+          <button onclick="openWhatsApp('produto')" class="opacity-0 group-hover:opacity-100 transition mt-3 eyebrow text-azul-claro hover:text-azul-bg">Ver no WhatsApp →</button>
+        </div>
+      </div>
+      <!-- Card 5: Relógios -->
+      <div class="group cursor-pointer text-center">
+        <div class="aspect-square rounded-full bg-white shadow-[0_20px_50px_-24px_rgba(39,89,137,0.25)] overflow-hidden flex items-center justify-center transition duration-500 group-hover:scale-105 group-hover:shadow-[0_30px_60px_-20px_rgba(39,89,137,0.4)]">
+            <svg width="48%" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <circle cx="50" cy="50" r="32" fill="none" stroke="#275989" stroke-width="6"/>
+              <path d="M50 30 L50 50 L65 60" stroke="#275989" stroke-width="5" stroke-linecap="round" fill="none"/>
+              <rect x="42" y="8" width="16" height="14" rx="2" fill="#275989"/>
+              <rect x="42" y="78" width="16" height="14" rx="2" fill="#275989"/>
+            </svg>
+        </div>
+        <div class="mt-5">
+          <div class="font-extrabold uppercase tracking-tight text-azul-bg text-lg">Relógios</div>
+          <p class="text-sm text-azul-escuro/65 mt-1">Design moderno para acompanhar o seu ritmo.</p>
+          <button onclick="openWhatsApp('produto')" class="opacity-0 group-hover:opacity-100 transition mt-3 eyebrow text-azul-claro hover:text-azul-bg">Ver no WhatsApp →</button>
+        </div>
+      </div>
+      <!-- Card 6: Lentes -->
+      <div class="group cursor-pointer text-center">
+        <div class="aspect-square rounded-full bg-cinza-respiro shadow-[0_20px_50px_-24px_rgba(39,89,137,0.25)] overflow-hidden flex items-center justify-center transition duration-500 group-hover:scale-105 group-hover:shadow-[0_30px_60px_-20px_rgba(39,89,137,0.4)]">
+            <svg width="48%" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <ellipse cx="50" cy="50" rx="38" ry="26" fill="none" stroke="#275989" stroke-width="5"/>
+              <ellipse cx="50" cy="50" rx="38" ry="26" fill="#6CA1B0" opacity="0.3"/>
+              <path d="M30 40 Q50 35 70 40" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+            </svg>
+        </div>
+        <div class="mt-5">
+          <div class="font-extrabold uppercase tracking-tight text-azul-bg text-lg">Lentes</div>
+          <p class="text-sm text-azul-escuro/65 mt-1">Antirreflexo, fotossensível, filtro azul e digital.</p>
+          <button onclick="openWhatsApp('produto')" class="opacity-0 group-hover:opacity-100 transition mt-3 eyebrow text-azul-claro hover:text-azul-bg">Ver no WhatsApp →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCO 2.3 — Marcas (texto em cima + 2 carrosséis embaixo) -->
+  <div class="max-w-7xl mx-auto px-5 lg:px-10 mt-32">
+    <!-- Closing text — agora no topo -->
+    <div class="reveal text-center max-w-3xl mx-auto mb-16">
+      <p class="headline text-azul-escuro text-2xl lg:text-4xl">Porque enxergar bem é essencial.</p>
+      <p class="headline text-azul-bg text-2xl lg:text-4xl mt-3">Mas usar algo que <span class="text-amarelo">realmente represente você</span><br/>é indispensável.</p>
+    </div>
+
+    <!-- Marquees — agora embaixo -->
+    <div class="reveal delay-1 text-center mb-5"><span class="eyebrow text-azul-claro">Marcas disponíveis</span></div>
+    <div class="reveal delay-2 brand-mask">
+      <div class="brand-row left">
+        <span class="brand-chip">360Gold</span>
+        <span class="brand-chip">Mormaii</span>
+        <span class="brand-chip">Speedo</span>
+        <span class="brand-chip">Burguese</span>
+        <span class="brand-chip">Ferrovia</span>
+        <span class="brand-chip">Bulget</span>
+        <span class="brand-chip">Intelectum</span>
+        <span class="brand-chip" aria-hidden="true">360Gold</span>
+        <span class="brand-chip" aria-hidden="true">Mormaii</span>
+        <span class="brand-chip" aria-hidden="true">Speedo</span>
+        <span class="brand-chip" aria-hidden="true">Burguese</span>
+        <span class="brand-chip" aria-hidden="true">Ferrovia</span>
+        <span class="brand-chip" aria-hidden="true">Bulget</span>
+        <span class="brand-chip" aria-hidden="true">Intelectum</span>
+      </div>
+    </div>
+
+    <div class="reveal delay-3 text-center mt-12 mb-5"><span class="eyebrow text-azul-claro">Lentes de tecnologia mundialmente reconhecida</span></div>
+    <div class="reveal delay-3 brand-mask">
+      <div class="brand-row right">
+        <span class="brand-chip">Zeiss</span>
+        <span class="brand-chip">Hoya</span>
+        <span class="brand-chip">Essilor</span>
+        <span class="brand-chip">Kodak</span>
+        <span class="brand-chip">Transitions</span>
+        <span class="brand-chip" aria-hidden="true">Zeiss</span>
+        <span class="brand-chip" aria-hidden="true">Hoya</span>
+        <span class="brand-chip" aria-hidden="true">Essilor</span>
+        <span class="brand-chip" aria-hidden="true">Kodak</span>
+        <span class="brand-chip" aria-hidden="true">Transitions</span>
+        <span class="brand-chip" aria-hidden="true">Zeiss</span>
+        <span class="brand-chip" aria-hidden="true">Hoya</span>
+        <span class="brand-chip" aria-hidden="true">Essilor</span>
+        <span class="brand-chip" aria-hidden="true">Kodak</span>
+        <span class="brand-chip" aria-hidden="true">Transitions</span>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wave-divider absolute bottom-0 left-0 w-full -mb-px" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wave-anim wave-anim-back" fill="#FFFFFF" fill-opacity="0.20" d="M0,90 C300,210 700,40 1080,140 C1260,200 1380,90 1440,150 C1740,210 2140,40 2520,140 C2700,200 2820,90 2880,150 L2880,200 L0,200 Z"></path>
+    <path class="wave-anim wave-anim-front" fill="#FFFFFF" d="M0,140 C320,40 700,220 1100,100 C1280,40 1360,200 1440,130 C1760,40 2140,220 2540,100 C2720,40 2800,200 2880,130 L2880,200 L0,200 Z"></path>
+  </svg>
+</section>
+
+<!-- EXAME -->
+<section id="exame" data-screen-label="05 Exame" class="relative bg-white py-24 lg:py-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10">
+    <!-- Header centralizado e enxuto -->
+    <div class="text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+      <div class="reveal eyebrow text-azul-claro mb-4">Exame de vista — em 3 passos</div>
+      <h2 class="reveal delay-1 headline text-azul-escuro text-[40px] lg:text-[60px] leading-[0.95]">Cuidar da sua visão também é <span class="text-azul-bg">escolher qualidade.</span></h2>
+    </div>
+
+    <!-- Timeline de 3 passos com linha conectora + óculos pendurado -->
+    <div class="reveal delay-2 relative mb-14">
+      <!-- Linha pontilhada conectora atrás dos cards (só desktop) -->
+      <div class="hidden md:block absolute top-[60px] left-[16%] right-[16%] z-0" style="border-top: 2px dashed rgba(108,161,176,0.45);"></div>
+
+      <div class="grid md:grid-cols-3 gap-5 relative z-10">
+        <!-- 01 -->
+        <div class="rounded-3xl bg-cinza-respiro px-7 py-8 flex items-center gap-5 transition hover:-translate-y-1 hover:shadow-lg">
+          <div class="headline text-azul-bg text-5xl lg:text-6xl flex-none w-16 lg:w-20 h-16 lg:h-20 rounded-2xl bg-white flex items-center justify-center shadow-sm">01</div>
+          <div class="font-extrabold uppercase tracking-tight text-azul-escuro text-[15px] leading-tight">Agendamento<br/>online</div>
+        </div>
+
+        <!-- 02 com óculos pendurado -->
+        <div class="rounded-3xl bg-amarelo px-7 py-8 flex items-center gap-5 transition hover:-translate-y-1 hover:shadow-lg relative">
+          <!-- Óculos pendurado balançando -->
+          <div class="hanging-glasses absolute -top-[58px] right-10 z-20">
+            <div class="w-px h-12 mx-auto" style="background: linear-gradient(to bottom, transparent 0%, rgba(26,61,92,0.55) 30%);"></div>
+            <svg width="78" height="36" viewBox="0 0 100 40" fill="none" stroke="#1A3D5C" stroke-width="3" stroke-linecap="round" class="-mt-1 drop-shadow-md">
+              <circle cx="22" cy="22" r="14" fill="rgba(255,255,255,0.4)"/>
+              <circle cx="78" cy="22" r="14" fill="rgba(255,255,255,0.4)"/>
+              <path d="M36 22h28"/>
+              <path d="M8 14L2 8M92 14l6-6"/>
+            </svg>
+          </div>
+          <div class="headline text-azul-escuro text-5xl lg:text-6xl flex-none w-16 lg:w-20 h-16 lg:h-20 rounded-2xl bg-white flex items-center justify-center shadow-sm">02</div>
+          <div class="font-extrabold uppercase tracking-tight text-azul-escuro text-[15px] leading-tight">Avaliação<br/>habilitada</div>
+        </div>
+
+        <!-- 03 -->
+        <div class="rounded-3xl bg-azul-bg text-white px-7 py-8 flex items-center gap-5 transition hover:-translate-y-1 hover:shadow-lg">
+          <div class="headline text-amarelo text-5xl lg:text-6xl flex-none w-16 lg:w-20 h-16 lg:h-20 rounded-2xl bg-azul-escuro flex items-center justify-center shadow-sm">03</div>
+          <div class="font-extrabold uppercase tracking-tight text-[15px] leading-tight">Escolha do<br/>seu óculos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar: condições + CTAs em uma linha só -->
+    <div class="reveal delay-3 bg-cinza-respiro rounded-2xl p-5 lg:p-6 flex flex-col lg:flex-row items-center gap-5 lg:gap-6 justify-between">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 flex-none rounded-full bg-amarelo text-azul-escuro flex items-center justify-center">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 110-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 100-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <div>
+          <div class="font-extrabold uppercase tracking-tight text-azul-escuro text-base">Condições especiais</div>
+          <div class="text-sm text-azul-escuro/65">Benefícios exclusivos na compra do óculos.</div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <button onclick="openModal()" class="btn btn-primary cta-pulse">Agende agora <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+        <button onclick="openWhatsApp('exame')" class="btn btn-dark">WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wave-divider absolute bottom-0 left-0 w-full -mb-px" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wave-anim wave-anim-back" fill="#275989" fill-opacity="0.22" d="M0,150 C260,40 640,200 1040,110 C1240,60 1360,180 1440,90 C1700,40 2080,200 2480,110 C2680,60 2800,180 2880,90 L2880,200 L0,200 Z"></path>
+    <path class="wave-anim wave-anim-front" fill="#275989" d="M0,170 C280,70 660,220 1060,140 C1260,90 1360,200 1440,130 C1720,70 2100,220 2500,140 C2700,90 2800,200 2880,130 L2880,200 L0,200 Z"></path>
+  </svg>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section id="depoimentos" data-screen-label="06 Depoimentos" class="relative bg-azul-bg text-white py-24 lg:py-32 overflow-hidden">
+  <!-- Customer photo background -->
+  <div class="absolute inset-0" aria-hidden="true">
+    <img src="assets/clientes-bg.png" alt="" class="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity"/>
+    <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(39,89,137,0.55) 0%, rgba(39,89,137,0.4) 35%, rgba(39,89,137,0.55) 100%);"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="reveal eyebrow text-amarelo mb-4">Prova social</div>
+      <h2 class="reveal delay-1 headline text-[40px] lg:text-[64px]">Quem escolhe qualidade, <span class="text-amarelo">volta.</span></h2>
+      <p class="reveal delay-2 mt-6 text-white/80">
+        Clientes que encontraram mais que óculos. Encontraram atendimento, confiança e um produto que realmente os representa.
+      </p>
+    </div>
+
+    <!-- Testimonials — marquee infinito (2 trilhas opostas) -->
+    <div class="reveal delay-3 mt-12 relative" id="testimonialCarousel">
+      <div class="t-marquee-mask">
+        <div class="t-marquee-row left" id="tMarqueeRow1"></div>
+      </div>
+      <div class="t-marquee-mask mt-5">
+        <div class="t-marquee-row right" id="tMarqueeRow2"></div>
+      </div>
+    </div>
+
+    <div class="text-center mt-14">
+      <p class="reveal italic text-white/70 max-w-xl mx-auto mb-8">Aqui, cada escolha tem propósito.</p>
+      <button onclick="openWhatsApp('depoimentos')" class="btn btn-primary">Fale com um consultor <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+    </div>
+  </div>
+
+  <svg class="wave-divider absolute bottom-0 left-0 w-full -mb-px" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wave-anim wave-anim-back" fill="#F4F6F8" fill-opacity="0.20" d="M0,90 C320,210 700,30 1100,160 C1280,210 1380,80 1440,150 C1760,210 2140,30 2540,160 C2720,210 2820,80 2880,150 L2880,200 L0,200 Z"></path>
+    <path class="wave-anim wave-anim-front" fill="#F4F6F8" d="M0,140 C300,30 700,220 1080,100 C1260,40 1360,200 1440,130 C1740,30 2140,220 2520,100 C2700,40 2800,200 2880,130 L2880,200 L0,200 Z"></path>
+  </svg>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram" data-screen-label="08 Instagram" class="relative bg-cinza-respiro pt-[20px] pb-24 lg:pt-[52px] lg:pb-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 lg:px-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="reveal eyebrow text-azul-claro mb-4">Comunidade</div>
+      <h2 class="reveal delay-1 headline text-azul-escuro text-[40px] lg:text-[60px]">Siga-nos no <span class="text-azul-bg">Instagram</span></h2>
+      <p class="reveal delay-2 mt-4 text-azul-escuro/70 font-extrabold tracking-tight">@oticas_olhar_360</p>
+    </div>
+
+    <!-- Variants -->
+    <div id="instagramVariantA" class="instagram-variant hidden reveal delay-3 mt-14 grid grid-cols-2 lg:grid-cols-3 gap-3">
+      <div class="aspect-square rounded-2xl overflow-hidden group relative cursor-pointer"><img src="assets/loja.png" alt="" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy"/><div class="absolute inset-0 bg-azul-bg/0 group-hover:bg-azul-bg/40 transition flex items-center justify-center"><svg class="opacity-0 group-hover:opacity-100 transition" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg></div></div>
+      <div class="aspect-square rounded-2xl overflow-hidden bg-azul-bg flex items-end justify-center group cursor-pointer"><img src="assets/homem.png" alt="" class="w-[110%] object-contain group-hover:scale-105 transition duration-700" loading="lazy"/></div>
+      <div class="aspect-square rounded-2xl overflow-hidden bg-amarelo flex items-center justify-center text-azul-escuro p-6 group cursor-pointer">
+        <div class="text-center"><div class="headline text-3xl lg:text-4xl">Qualidade</div><div class="headline text-amarelo bg-azul-escuro inline-block px-3 py-1 rounded mt-2 text-xl">representa</div></div>
+      </div>
+      <div class="aspect-square rounded-2xl overflow-hidden bg-azul-escuro flex items-center justify-center text-amarelo p-6">
+        <div class="text-center eyebrow leading-relaxed">Coleção<br/><span class="headline text-3xl block mt-1">360Gold</span><span class="text-white/70 text-xs mt-2 block">Disponível na loja</span></div>
+      </div>
+      <div class="aspect-square rounded-2xl overflow-hidden group cursor-pointer"><img src="assets/mosaico.png" alt="" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" loading="lazy"/></div>
+      <div class="aspect-square rounded-2xl overflow-hidden bg-cinza-respiro border-2 border-azul-escuro/10 flex items-center justify-center p-6 group cursor-pointer">
+        <div class="text-center">
+          <div class="text-3xl mb-3">⌐◑‿◐</div>
+          <div class="eyebrow text-azul-bg">Novidades<br/>na vitrine</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variant B: mosaic asymmetric -->
+    <div id="instagramVariantB" class="instagram-variant hidden reveal delay-3 mt-14 grid grid-cols-4 grid-rows-2 gap-3 max-w-5xl mx-auto" style="height: 480px;">
+      <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden"><img src="assets/loja.png" alt="" class="w-full h-full object-cover" loading="lazy"/></div>
+      <div class="rounded-2xl overflow-hidden bg-azul-bg flex items-end"><img src="assets/homem.png" alt="" class="w-full object-contain" loading="lazy"/></div>
+      <div class="rounded-2xl bg-amarelo flex items-center justify-center text-azul-escuro p-3"><div class="headline text-xl text-center">Qualidade que representa</div></div>
+      <div class="rounded-2xl overflow-hidden"><img src="assets/mosaico.png" alt="" class="w-full h-full object-cover" loading="lazy"/></div>
+      <div class="rounded-2xl bg-azul-escuro text-amarelo flex items-center justify-center p-3"><div class="text-center"><div class="eyebrow">Coleção</div><div class="headline text-2xl mt-1">360Gold</div></div></div>
+    </div>
+
+    <!-- Variant C: horizontal strip -->
+    <div id="instagramVariantC" class="instagram-variant reveal delay-3 mt-14 grid grid-cols-3 lg:grid-cols-6 gap-2">
+      <div class="aspect-square rounded-xl overflow-hidden"><img src="assets/loja.png" alt="" class="w-full h-full object-cover" loading="lazy"/></div>
+      <div class="aspect-square rounded-xl overflow-hidden bg-azul-bg flex items-end"><img src="assets/homem.png" alt="" class="w-full object-contain" loading="lazy"/></div>
+      <div class="aspect-square rounded-xl bg-amarelo text-azul-escuro flex items-center justify-center p-2"><div class="headline text-xs sm:text-sm text-center">QUALIDADE QUE REPRESENTA</div></div>
+      <div class="aspect-square rounded-xl overflow-hidden"><img src="assets/mosaico.png" alt="" class="w-full h-full object-cover" loading="lazy"/></div>
+      <div class="aspect-square rounded-xl bg-azul-escuro text-amarelo flex items-center justify-center p-2"><div class="text-center"><div class="text-[10px] uppercase">Coleção</div><div class="headline text-base">360Gold</div></div></div>
+      <div class="aspect-square rounded-xl bg-cinza-respiro border border-azul-escuro/10 flex items-center justify-center"><div class="text-2xl">⌐◑‿◐</div></div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="https://instagram.com/oticas_olhar_360" target="_blank" rel="noopener" class="btn btn-dark">Seguir no Instagram <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
+    </div>
+  </div>
+
+  <svg class="wave-divider absolute bottom-0 left-0 w-full -mb-px" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="wave-anim wave-anim-back" fill="#1A3D5C" fill-opacity="0.22" d="M0,160 C320,60 640,210 980,130 C1220,80 1340,180 1440,100 C1760,60 2080,210 2420,130 C2660,80 2780,180 2880,100 L2880,200 L0,200 Z"></path>
+    <path class="wave-anim wave-anim-front" fill="#1A3D5C" d="M0,180 C260,80 620,220 940,140 C1180,90 1320,210 1440,140 C1700,80 2060,220 2380,140 C2620,90 2760,210 2880,140 L2880,200 L0,200 Z"></path>
+  </svg>
+</section>
+
+<!-- CONTATO / CTA FINAL -->
+<section id="contato" data-screen-label="09 Contato" class="relative bg-azul-escuro text-white py-24 lg:py-32 overflow-hidden">
+  <!-- Pontos de luz amarela (apenas na parte inferior) -->
+  <div class="absolute -bottom-24 -right-24 w-[420px] h-[420px] rounded-full bg-amarelo opacity-[0.10] blur-3xl" aria-hidden="true"></div>
+  <div class="absolute bottom-32 -left-20 w-[380px] h-[380px] rounded-full bg-amarelo opacity-[0.07] blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+      <!-- LEFT: Form card -->
+      <form class="reveal bg-white rounded-3xl p-8 lg:p-10 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.45)] space-y-5 relative" onsubmit="submitForm(event)">
+        <!-- Mini badge no topo do card -->
+        <div class="absolute -top-4 left-8 inline-flex items-center gap-2 bg-amarelo text-azul-escuro px-4 py-1.5 rounded-full eyebrow text-[11px] shadow-md">
+          <span class="w-1.5 h-1.5 rounded-full bg-azul-escuro"></span>
+          Resposta em até 15 min
+        </div>
+        <div class="eyebrow text-azul-claro mb-2 mt-2">Agende seu atendimento</div>
+        <h3 class="headline text-azul-escuro text-3xl lg:text-4xl">Descubra por que somos referência em qualidade em Camocim.</h3>
+
+        <div class="pt-4 space-y-5">
+          <div><label class="eyebrow text-azul-escuro/55 mb-2 block">Nome</label><input required name="nome" type="text" placeholder="Seu nome completo" class="field"/></div>
+          <div><label class="eyebrow text-azul-escuro/55 mb-2 block">DDD + Telefone</label><input required name="telefone" type="tel" placeholder="(88) 9 0000-0000" class="field"/></div>
+          <div class="grid grid-cols-2 gap-4">
+            <div><label class="eyebrow text-azul-escuro/55 mb-2 block">Data</label><input required name="data" type="date" class="field"/></div>
+            <div><label class="eyebrow text-azul-escuro/55 mb-2 block">Hora</label><input required name="hora" type="time" class="field"/></div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full justify-center text-base py-5 cta-pulse mt-2">
+          Agendar exame <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </button>
+      </form>
+
+      <!-- RIGHT: Contact info — agora sobre fundo azul -->
+      <div class="reveal delay-2 lg:pt-6">
+        <div class="text-sm text-amarelo uppercase tracking-[0.15em] font-bold">Para mais informações,</div>
+        <h2 class="headline text-white text-[44px] lg:text-[64px] mt-2">Entre em <span class="text-amarelo">Contato</span></h2>
+        <p class="mt-6 text-white/80 max-w-2xl">
+          Está na hora de escolher algo que realmente represente você.
+        </p>
+
+        <div class="mt-10">
+          <div class="flex gap-3">
+            <a href="https://wa.me/5588992742862" target="_blank" rel="noopener" aria-label="WhatsApp" class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:scale-110 transition shadow-md">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+            </a>
+            <a href="https://instagram.com/oticas_olhar_360" target="_blank" rel="noopener" aria-label="Instagram" class="w-12 h-12 rounded-full text-white flex items-center justify-center hover:scale-110 transition shadow-md" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-12 h-12 rounded-full bg-[#0A66C2] text-white flex items-center justify-center hover:scale-110 transition shadow-md">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+            </a>
+            <a href="mailto:oticasolhar360@gmail.com" aria-label="E-mail" class="w-12 h-12 rounded-full bg-[#EA4335] text-white flex items-center justify-center hover:scale-110 transition shadow-md">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <ul class="mt-10 space-y-4">
+          <li class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-amarelo text-azul-escuro flex items-center justify-center flex-none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.94.36 1.85.7 2.72a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.36-1.36a2 2 0 012.11-.45c.87.34 1.78.57 2.72.7A2 2 0 0122 16.92z"/></svg></span>
+            <a href="tel:+5588992742862" class="font-extrabold text-white hover:text-amarelo transition">(88) 99274-2862</a>
           </li>
-          <li class="flex items-center justify-between py-3 gap-4">
-            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Óculos de sol com grau (na compra)</span>
-            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 600</span>
+          <li class="flex items-center gap-4">
+            <span class="w-10 h-10 rounded-full bg-amarelo text-azul-escuro flex items-center justify-center flex-none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+            <a href="mailto:oticasolhar360@gmail.com" class="font-extrabold text-white hover:text-amarelo transition">oticasolhar360@gmail.com</a>
           </li>
-          <li class="flex items-center justify-between py-3 gap-4">
-            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Avaliação de fadiga visual digital</span>
-            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 150</span>
-          </li>
-          <li class="flex items-center justify-between py-3 gap-4">
-            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Indicação personalizada de armação</span>
-            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 100</span>
-          </li>
-          <li class="flex items-center justify-between py-3 gap-4">
-            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Garantia total de adaptação</span>
-            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 200</span>
-          </li>
-          <li class="flex items-center justify-between py-3 gap-4">
-            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Atendimento prioritário sem fila</span>
-            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 80</span>
-          </li>
-          <li class="flex items-center justify-between py-3 gap-4">
-            <span class="flex items-center gap-3 text-petroleo font-medium"><span class="text-emerald-500">✓</span> Pós-venda com manutenção 12 meses</span>
-            <span class="font-display font-bold text-petroleo whitespace-nowrap">R$ 120</span>
+          <li class="flex items-start gap-4">
+            <span class="w-10 h-10 rounded-full bg-amarelo text-azul-escuro flex items-center justify-center flex-none mt-0.5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <span class="font-extrabold text-white">Rua José de Alencar, 862<br/><span class="font-normal text-white/65 text-sm">Camocim/CE · 62400-000</span></span>
           </li>
         </ul>
-
-        <div class="mt-5 pt-5 border-t-2 border-dashed border-petroleo/20 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="font-display font-bold text-petroleo text-base">Valor total do pacote</span>
-            <span class="font-display font-extrabold text-petroleo text-xl line-through opacity-60">R$ 1.450</span>
-          </div>
-          <div class="flex items-center justify-between bg-solar/20 rounded-xl px-4 py-3 mt-2">
-            <span class="font-display font-extrabold text-petroleo text-lg">Seu investimento pelo exame</span>
-            <span class="font-display font-black text-petroleo text-3xl lg:text-4xl">R$ 0</span>
-          </div>
-          <p class="text-xs text-inkSoft text-right pt-1">(Você só paga se decidir levar o óculos principal)</p>
-        </div>
-      </div>
-
-      <!-- Local seal -->
-      <div class="mt-8 bg-petroleo rounded-2xl p-5 flex items-center gap-4">
-        <span class="w-12 h-12 rounded-full bg-solar flex items-center justify-center text-petroleo text-2xl flex-shrink-0">📍</span>
-        <p class="text-solar font-display font-bold text-base lg:text-lg leading-snug">
-          Atendimento aqui mesmo em Camocim — sem precisar viajar
-        </p>
-      </div>
-
-      <!-- CTA -->
-      <div class="mt-10 text-center">
-        <button onclick="openQuiz()" class="cta-pulse w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-solar text-petroleo font-display font-extrabold text-base lg:text-xl px-8 py-6 rounded-2xl shadow-cta">
-          🟡 FAZER MEU DIAGNÓSTICO E LIBERAR MINHA OFERTA
-          <span class="text-2xl leading-none">→</span>
-        </button>
-        <p class="mt-5 inline-flex items-center gap-2 text-rose-600 font-bold text-sm bg-rose-50 px-4 py-2 rounded-full">
-          ⏰ Apenas 50 vagas para exame gratuito esta semana
-        </p>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ====================================================== -->
-<!-- SECTION 8 — FAQ                                         -->
-<!-- ====================================================== -->
-<section id="faq" class="py-20 lg:py-28 bg-graybg">
-  <div class="max-w-3xl mx-auto px-5 lg:px-8">
-    <h2 class="reveal text-center font-display font-extrabold text-petroleo text-3xl sm:text-4xl lg:text-5xl leading-tight">
-      Ainda em dúvida? <span class="text-teal360">Pega aqui:</span>
-    </h2>
-
-    <div class="mt-12 space-y-3">
-      <details class="reveal group bg-white rounded-2xl border border-slate-100 shadow-card overflow-hidden">
-        <summary class="flex items-center justify-between gap-4 p-5 lg:p-6">
-          <span class="font-display font-bold text-petroleo text-base lg:text-lg pr-4">E se eu não precisar de óculos?</span>
-          <span class="acc-icon w-9 h-9 rounded-full bg-tealSoft text-teal360 flex items-center justify-center text-2xl font-bold flex-shrink-0">+</span>
-        </summary>
-        <div class="px-5 lg:px-6 pb-6 text-inkSoft leading-relaxed">
-          Melhor ainda. O exame confirma se sua visão está saudável e você sai com a certeza
-          tranquila — sem custo nenhum. Se precisar, a gente já indica a melhor solução na hora.
-        </div>
-      </details>
-
-      <details class="reveal group bg-white rounded-2xl border border-slate-100 shadow-card overflow-hidden">
-        <summary class="flex items-center justify-between gap-4 p-5 lg:p-6">
-          <span class="font-display font-bold text-petroleo text-base lg:text-lg pr-4">E se eu já uso óculos?</span>
-          <span class="acc-icon w-9 h-9 rounded-full bg-tealSoft text-teal360 flex items-center justify-center text-2xl font-bold flex-shrink-0">+</span>
-        </summary>
-        <div class="px-5 lg:px-6 pb-6 text-inkSoft leading-relaxed">
-          O grau muda com o tempo. Recomendamos refazer o exame a cada 12 meses. Se sua receita
-          ainda estiver válida, você ganha o brinde mesmo assim ao adquirir um novo óculos.
-        </div>
-      </details>
-
-      <details class="reveal group bg-white rounded-2xl border border-slate-100 shadow-card overflow-hidden">
-        <summary class="flex items-center justify-between gap-4 p-5 lg:p-6">
-          <span class="font-display font-bold text-petroleo text-base lg:text-lg pr-4">Quanto tempo demora o exame?</span>
-          <span class="acc-icon w-9 h-9 rounded-full bg-tealSoft text-teal360 flex items-center justify-center text-2xl font-bold flex-shrink-0">+</span>
-        </summary>
-        <div class="px-5 lg:px-6 pb-6 text-inkSoft leading-relaxed">
-          Em média, <strong class="text-petroleo">25 a 35 minutos</strong>. Equipamento moderno,
-          atendimento sem pressa e sem fila — agendamento prioritário pra quem completa o quiz.
-        </div>
-      </details>
-
-      <details class="reveal group bg-white rounded-2xl border border-slate-100 shadow-card overflow-hidden">
-        <summary class="flex items-center justify-between gap-4 p-5 lg:p-6">
-          <span class="font-display font-bold text-petroleo text-base lg:text-lg pr-4">É realmente grátis ou tem pegadinha?</span>
-          <span class="acc-icon w-9 h-9 rounded-full bg-tealSoft text-teal360 flex items-center justify-center text-2xl font-bold flex-shrink-0">+</span>
-        </summary>
-        <div class="px-5 lg:px-6 pb-6 text-inkSoft leading-relaxed">
-          É grátis de verdade. O exame é cortesia. Você só investe se decidir levar o óculos
-          principal — e nesse caso, ganha o óculos de sol com grau como brinde. Sem letras miúdas.
-        </div>
-      </details>
+<!-- FOOTER -->
+<footer class="bg-cinza-respiro py-16 px-5 lg:px-10">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10">
+    <div class="lg:col-span-5">
+      <img src="assets/logo-color.png" alt="Óticas Olhar 360°" class="h-11"/>
+      <p class="mt-5 text-azul-escuro/70 max-w-sm">Qualidade que representa — atendimento humanizado em Camocim/CE e região.</p>
     </div>
-  </div>
-</section>
-
-<!-- ====================================================== -->
-<!-- SECTION 9 — FINAL CTA                                   -->
-<!-- ====================================================== -->
-<section class="petro-bg py-20 lg:py-32 text-white relative overflow-hidden">
-  <div class="absolute top-10 left-10 w-32 h-32 rounded-full border-4 border-solar/30 float-slow"></div>
-  <div class="absolute bottom-12 right-12 text-solar text-7xl font-black float-fast opacity-50">✱</div>
-
-  <div class="max-w-3xl mx-auto px-5 lg:px-8 text-center">
-    <h2 class="reveal font-display font-black text-white text-4xl sm:text-5xl lg:text-7xl leading-[1.02]">
-      Sua visão merece um <span class="text-solar">olhar 360°.</span>
-    </h2>
-    <p class="reveal text-white/70 text-lg lg:text-xl mt-6 max-w-xl mx-auto">
-      30 segundos pra descobrir. Uma vida inteira pra ver melhor.
-    </p>
-    <button onclick="openQuiz()" class="cta-pulse mt-10 inline-flex items-center gap-3 bg-solar text-petroleo font-display font-extrabold text-base lg:text-xl px-8 py-6 rounded-2xl shadow-cta">
-      🟡 FAZER MEU DIAGNÓSTICO 360° AGORA
-      <span class="text-2xl leading-none">→</span>
-    </button>
-  </div>
-</section>
-
-<!-- ====================================================== -->
-<!-- FOOTER                                                  -->
-<!-- ====================================================== -->
-<footer class="bg-petroDark text-white/80">
-  <div class="max-w-6xl mx-auto px-5 lg:px-8 py-14 grid md:grid-cols-3 gap-10">
-    <div>
-      <img src="assets/logo-olhar360.png" alt="Óticas Olhar 360°" class="logo-img-lg logo-img-light" />
-      <p class="mt-5 text-white/60 italic">Visão completa. Cuidado 360°.</p>
-    </div>
-
-    <div>
-      <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Atendimento</h4>
-      <ul class="space-y-2 text-sm text-white/70">
-        <li>📍 Rua José de Alencar, 862 — Camocim/CE · 62400-000</li>
-        <li>💬 (88) 99274-2862 (WhatsApp)</li>
-        <li>📧 oticasolhar360@gmail.com</li>
-        <li>🕐 Seg–Sex 8h–18h · Sáb 8h–13h</li>
+    <div class="lg:col-span-3">
+      <div class="eyebrow text-azul-claro mb-4">Navegação</div>
+      <ul class="space-y-2 text-azul-escuro font-bold text-sm">
+        <li><a href="#sobre" class="link-underline hover:text-azul-bg">Sobre nós</a></li>
+        <li><a href="#gold" class="link-underline hover:text-azul-bg">360Gold</a></li>
+        <li><a href="#produtos" class="link-underline hover:text-azul-bg">Produtos</a></li>
+        <li><a href="#exame" class="link-underline hover:text-azul-bg">Exame</a></li>
+        <li><a href="#loja" class="link-underline hover:text-azul-bg">Loja</a></li>
+        <li><a href="#contato" class="link-underline hover:text-azul-bg">Contato</a></li>
       </ul>
     </div>
-
-    <div>
-      <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Acompanhe</h4>
-      <div class="flex gap-3">
-        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-solar hover:text-petroleo flex items-center justify-center transition" aria-label="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 3.3.15 4.8 1.7 5 5 .06 1.2.07 1.6.07 4.8s0 3.6-.07 4.8c-.2 3.3-1.7 4.8-5 5-1.2.06-1.6.07-4.8.07s-3.6 0-4.8-.07c-3.3-.2-4.8-1.7-5-5C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.8c.2-3.3 1.7-4.8 5-5C8.4 2.2 8.8 2.2 12 2.2zm0 5.4a4.4 4.4 0 100 8.8 4.4 4.4 0 000-8.8zm0 7.2a2.8 2.8 0 110-5.6 2.8 2.8 0 010 5.6zm5.6-7.4a1 1 0 100-2 1 1 0 000 2z"/></svg>
-        </a>
-        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-solar hover:text-petroleo flex items-center justify-center transition" aria-label="Facebook">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H8v-3h2.4V9.5c0-2.4 1.4-3.7 3.5-3.7 1 0 2.1.18 2.1.18v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5V12h2.6l-.4 3h-2.2v7A10 10 0 0022 12z"/></svg>
-        </a>
-        <a href="https://wa.me/5588992742862" class="w-10 h-10 rounded-full bg-white/10 hover:bg-emerald-500 flex items-center justify-center transition" aria-label="WhatsApp">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.671 5.494l-.999 3.648 3.817-1.001z"/></svg>
-        </a>
-      </div>
-      <a href="#" class="block mt-5 text-sm text-white/60 hover:text-white">Política de privacidade</a>
+    <div class="lg:col-span-4">
+      <div class="eyebrow text-azul-claro mb-4">Contato</div>
+      <ul class="space-y-2 text-azul-escuro font-bold text-sm">
+        <li>WhatsApp: <a href="https://wa.me/5588992742862" class="link-underline">(88) 99274-2862</a></li>
+        <li>E-mail: <a href="mailto:oticasolhar360@gmail.com" class="link-underline">oticasolhar360@gmail.com</a></li>
+        <li>Rua José de Alencar, 862 — Camocim/CE</li>
+        <li>Instagram: <a href="https://instagram.com/oticas_olhar_360" class="link-underline">@oticas_olhar_360</a></li>
+      </ul>
     </div>
   </div>
-
-  <div class="border-t border-white/10">
-    <div class="max-w-6xl mx-auto px-5 lg:px-8 py-6 text-xs text-white/50 leading-relaxed">
-      Este diagnóstico não substitui consulta médica oftalmológica. É uma triagem informativa para encaminhamento.
-      <br />
-      © 2026 Óticas Olhar 360° · Andreanne de Sousa Rocha — CNPJ: 59.407.982/0001-83 · Camocim/CE — Todos os direitos reservados.
-    </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-azul-escuro/10 flex flex-wrap items-center justify-between gap-4">
+    <div class="text-azul-escuro/60 text-xs">Óticas Olhar 360° © 2026 — Qualidade que representa</div>
+    <div class="text-azul-escuro/60 text-xs">CNPJ 59.407.982/0001-83</div>
   </div>
 </footer>
 
-<!-- ====================================================== -->
-<!-- WHATSAPP FLOATING BUTTON                                -->
-<!-- ====================================================== -->
-<a href="https://wa.me/5588992742862" target="_blank" rel="noopener"
-   class="wa-float fixed bottom-5 right-5 z-30 w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-emerald-500 hover:bg-emerald-600 flex items-center justify-center text-white transition"
-   aria-label="Abrir WhatsApp">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.671 5.494l-.999 3.648 3.817-1.001zm6.6-5.807c.232.135 1.582.93 1.85 1.064.27.135.45.2.516.314.067.114.067.66-.155 1.297-.222.636-1.288 1.218-1.815 1.297-.464.07-1.05.099-1.69-.106-.39-.124-.892-.29-1.534-.567-2.7-1.166-4.464-3.884-4.598-4.063-.135-.18-1.097-1.46-1.097-2.785 0-1.323.69-1.974.937-2.244.247-.27.54-.337.72-.337l.518.01c.166.008.39-.063.61.466.232.567.788 1.96.86 2.102.07.144.118.31.024.498-.094.18-.142.297-.282.46-.135.157-.286.353-.41.474-.135.135-.276.282-.118.55.157.27.7 1.156 1.503 1.872 1.034.92 1.905 1.207 2.176 1.343.27.135.428.114.586-.07.158-.18.676-.789.857-1.058.18-.27.36-.226.61-.135.247.094 1.566.74 1.834.876z"/></svg>
+<!-- Floating buttons -->
+<a href="https://wa.me/5588992742862?text=Ol%C3%A1!%20Vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" target="_blank" rel="noopener" class="float-btn right-6 bg-[#25D366] text-white" aria-label="Falar no WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
+</a>
+<a href="tel:+5588992742862" class="float-btn left-6 lg:hidden bg-amarelo text-azul-escuro" aria-label="Ligar">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.94.36 1.85.7 2.72a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.36-1.36a2 2 0 012.11-.45c.87.34 1.78.57 2.72.7A2 2 0 0122 16.92z"/></svg>
 </a>
 
-<!-- ====================================================== -->
-<!-- QUIZ MODAL                                              -->
-<!-- ====================================================== -->
-<div id="quizModal" class="hidden fixed inset-0 z-50 modal-backdrop items-center justify-center p-4">
-  <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
-    <!-- Modal head -->
-    <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
-      <div class="flex items-center gap-3">
-        <img src="assets/logo-olhar360.png" alt="Óticas Olhar 360°" class="logo-img-sm" />
-        <span class="hidden sm:inline-block font-display font-extrabold text-petroleo text-sm border-l border-slate-200 pl-3">Diagnóstico</span>
+<!-- Modal de agendamento -->
+<div id="modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+  <div class="modal-backdrop absolute inset-0" onclick="closeModal()"></div>
+  <div class="relative bg-white rounded-3xl w-full max-w-lg p-8 lg:p-10 shadow-2xl">
+    <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-cinza-respiro hover:bg-amarelo transition flex items-center justify-center" aria-label="Fechar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div class="eyebrow text-azul-claro">Agendar exame</div>
+    <h3 class="headline text-azul-escuro text-3xl mt-2">Vamos cuidar da sua visão.</h3>
+    <p class="mt-2 text-azul-escuro/70 text-sm">Preencha e enviamos sua solicitação direto pelo WhatsApp.</p>
+    <form class="mt-6 space-y-4" onsubmit="submitForm(event, true)">
+      <div><label class="eyebrow text-azul-escuro/60 mb-2 block">Nome</label><input required name="nome" type="text" placeholder="Seu nome completo" class="field"/></div>
+      <div><label class="eyebrow text-azul-escuro/60 mb-2 block">Telefone</label><input required name="telefone" type="tel" placeholder="(88) 9 0000-0000" class="field"/></div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="eyebrow text-azul-escuro/60 mb-2 block">Data</label><input required name="data" type="date" class="field"/></div>
+        <div><label class="eyebrow text-azul-escuro/60 mb-2 block">Hora</label><input required name="hora" type="time" class="field"/></div>
       </div>
-      <button onclick="closeQuiz()" class="w-9 h-9 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500 text-xl leading-none" aria-label="Fechar">×</button>
-    </div>
-
-    <!-- Progress -->
-    <div class="px-5 pt-5">
-      <div id="quizProgress" class="flex gap-1.5"></div>
-      <p id="quizCounter" class="text-[11px] tracking-widest font-bold text-teal360 uppercase mt-3">Pergunta 1 de 6</p>
-    </div>
-
-    <!-- Body -->
-    <div id="quizBody" class="px-5 pb-5 pt-2 flex-1 overflow-y-auto"></div>
-
-    <!-- Footer -->
-    <div class="px-5 py-4 border-t border-slate-100 flex items-center justify-between gap-3 bg-graybg">
-      <button id="quizBack" onclick="quizBack()" class="text-petroleo font-medium text-sm px-4 py-2 rounded-lg hover:bg-slate-200 transition disabled:opacity-30" disabled>← Voltar</button>
-      <button id="quizNext" onclick="quizNext()" class="bg-solar text-petroleo font-display font-extrabold text-sm px-6 py-3 rounded-xl shadow-cta disabled:opacity-50 disabled:shadow-none">Continuar →</button>
-    </div>
+      <button type="submit" class="btn btn-primary w-full justify-center py-4">Enviar pelo WhatsApp <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></button>
+    </form>
   </div>
 </div>
 
-<!-- ====================================================== -->
-<!-- SCRIPTS                                                 -->
-<!-- ====================================================== -->
-<script>
-  // ----- Mobile menu -----
-  const burger = document.getElementById('burger');
-  const mm     = document.getElementById('mm');
-  burger.addEventListener('click', () => mm.classList.toggle('open'));
-  mm.querySelectorAll('a, button').forEach(el => el.addEventListener('click', () => mm.classList.remove('open')));
-
-  // ----- Reveal on scroll -----
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // ----- QUIZ -----
-  const QUESTIONS = [
-    {
-      q: "Você sente cansaço nos olhos no fim do dia?",
-      opts: [
-        {label:"Quase nunca",         score:0, tone:"emerald"},
-        {label:"Às vezes",            score:1, tone:"amber"},
-        {label:"Quase todo dia",      score:2, tone:"orange"},
-        {label:"Todo dia, forte",     score:3, tone:"rose"},
-      ],
-    },
-    {
-      q: "Quanto tempo por dia você passa em telas (celular, TV, computador)?",
-      opts: [
-        {label:"Menos de 2 horas",    score:0, tone:"emerald"},
-        {label:"Entre 2 e 4 horas",   score:1, tone:"amber"},
-        {label:"Entre 4 e 8 horas",   score:2, tone:"orange"},
-        {label:"Mais de 8 horas",     score:3, tone:"rose"},
-      ],
-    },
-    {
-      q: "Com que frequência você tem dores de cabeça sem motivo aparente?",
-      opts: [
-        {label:"Raramente",           score:0, tone:"emerald"},
-        {label:"1–2x por semana",     score:1, tone:"amber"},
-        {label:"3–4x por semana",     score:2, tone:"orange"},
-        {label:"Quase todos os dias", score:3, tone:"rose"},
-      ],
-    },
-    {
-      q: "Você aperta os olhos ou se aproxima da tela pra ler melhor?",
-      opts: [
-        {label:"Nunca preciso",       score:0, tone:"emerald"},
-        {label:"Só de placas longe",  score:1, tone:"amber"},
-        {label:"Bastante, no celular",score:2, tone:"orange"},
-        {label:"O tempo todo",        score:3, tone:"rose"},
-      ],
-    },
-    {
-      q: "Há quanto tempo você não faz um exame de vista?",
-      opts: [
-        {label:"Menos de 1 ano",      score:0, tone:"emerald"},
-        {label:"Entre 1 e 2 anos",    score:1, tone:"amber"},
-        {label:"Entre 2 e 5 anos",    score:2, tone:"orange"},
-        {label:"Mais de 5 anos / nunca", score:3, tone:"rose"},
-      ],
-    },
-    {
-      q: "Qual sua faixa de idade?",
-      opts: [
-        {label:"Menos de 25",         score:0, tone:"emerald"},
-        {label:"25 a 39",             score:1, tone:"amber"},
-        {label:"40 a 54",             score:2, tone:"orange"},
-        {label:"55 ou mais",          score:3, tone:"rose"},
-      ],
-    },
-  ];
-
-  const TONE = {
-    emerald: { border:'border-emerald-300', bg:'bg-emerald-50', dot:'bg-emerald-500'},
-    amber:   { border:'border-amber-300',   bg:'bg-amber-50',   dot:'bg-amber-400'},
-    orange:  { border:'border-orange-300',  bg:'bg-orange-50',  dot:'bg-orange-500'},
-    rose:    { border:'border-rose-300',    bg:'bg-rose-50',    dot:'bg-rose-500'},
-  };
-
-  let qIdx = 0;
-  let answers = Array(QUESTIONS.length).fill(null);
-  let resultShown = false;
-
-  function openQuiz(){
-    qIdx = 0;
-    answers = Array(QUESTIONS.length).fill(null);
-    resultShown = false;
-    document.getElementById('quizModal').classList.remove('hidden');
-    document.getElementById('quizModal').classList.add('flex');
-    document.body.classList.add('locked');
-    renderQuiz();
-  }
-  function closeQuiz(){
-    document.getElementById('quizModal').classList.add('hidden');
-    document.getElementById('quizModal').classList.remove('flex');
-    document.body.classList.remove('locked');
-  }
-  // Close on backdrop
-  document.getElementById('quizModal').addEventListener('click', (e) => {
-    if (e.target.id === 'quizModal') closeQuiz();
-  });
-  // Esc
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeQuiz(); });
-
-  function renderProgress(){
-    const p = document.getElementById('quizProgress');
-    p.innerHTML = '';
-    QUESTIONS.forEach((_, i) => {
-      const seg = document.createElement('div');
-      seg.className = 'seg' + (i <= qIdx ? ' on' : '');
-      p.appendChild(seg);
-    });
-  }
-
-  function renderQuiz(){
-    if (resultShown) { renderResult(); return; }
-    const body = document.getElementById('quizBody');
-    const counter = document.getElementById('quizCounter');
-    counter.textContent = `Pergunta ${qIdx+1} de ${QUESTIONS.length}`;
-    renderProgress();
-
-    const q = QUESTIONS[qIdx];
-    body.innerHTML = `
-      <h3 class="font-display font-extrabold text-petroleo text-xl lg:text-2xl leading-tight mt-4">${q.q}</h3>
-      <div class="mt-5 space-y-2.5">
-        ${q.opts.map((o, i) => `
-          <button class="opt-btn w-full flex items-center gap-3 p-4 rounded-xl border-2 ${TONE[o.tone].border} ${TONE[o.tone].bg} text-left ${answers[qIdx] === i ? 'sel' : ''}" data-i="${i}">
-            <span class="w-3 h-3 rounded-full ${TONE[o.tone].dot} flex-shrink-0"></span>
-            <span class="text-sm font-semibold text-petroleo">${o.label}</span>
-          </button>
-        `).join('')}
-      </div>
-    `;
-
-    body.querySelectorAll('.opt-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const i = parseInt(btn.dataset.i, 10);
-        answers[qIdx] = i;
-        // visually update
-        body.querySelectorAll('.opt-btn').forEach(b => {
-          b.classList.remove('sel');
-          b.disabled = true;
-        });
-        btn.classList.add('sel');
-        updateNav();
-        // auto-advance to next question (or result on last)
-        setTimeout(() => quizNext(), 280);
-      });
-    });
-
-    updateNav();
-  }
-
-  function updateNav(){
-    const nextBtn = document.getElementById('quizNext');
-    const backBtn = document.getElementById('quizBack');
-    backBtn.disabled = qIdx === 0;
-    if (resultShown) {
-      nextBtn.textContent = '🟢 Falar no WhatsApp →';
-      nextBtn.disabled = false;
-      return;
-    }
-    const has = answers[qIdx] !== null;
-    nextBtn.disabled = !has;
-    nextBtn.textContent = (qIdx === QUESTIONS.length - 1) ? 'Ver meu diagnóstico →' : 'Continuar →';
-  }
-
-  function quizNext(){
-    if (resultShown) {
-      // Send to WhatsApp
-      const score = answers.reduce((s, a, i) => s + (a !== null ? QUESTIONS[i].opts[a].score : 0), 0);
-      const profile = profileFor(score);
-      const msg = encodeURIComponent(
-        `Olá, Olhar 360°! Acabei de fazer o Diagnóstico 360° e meu perfil é: *${profile.title}*. Quero garantir minha vaga para o exame gratuito + óculos de sol com grau de brinde.`
-      );
-      window.open(`https://wa.me/5588992742862?text=${msg}`, '_blank');
-      return;
-    }
-    if (answers[qIdx] === null) return;
-    if (qIdx < QUESTIONS.length - 1) {
-      qIdx++;
-      renderQuiz();
-    } else {
-      resultShown = true;
-      renderResult();
-    }
-  }
-  function quizBack(){
-    if (resultShown) { resultShown = false; renderQuiz(); return; }
-    if (qIdx > 0) { qIdx--; renderQuiz(); }
-  }
-
-  function profileFor(score){
-    // max = 18
-    if (score <= 5)  return { key:'low',  title:'Visão Estável',     pct: Math.round((score/18)*100), color:'emerald',
-      desc:'Boas notícias: seus olhos parecem estar bem cuidados. Ainda assim, um exame preventivo a cada 12 meses garante que nada esteja se desenvolvendo silenciosamente.' };
-    if (score <= 11) return { key:'mid',  title:'Fadiga Visual em Alerta', pct: Math.round((score/18)*100), color:'amber',
-      desc:'Seus olhos estão dando sinais claros de fadiga. Pequenos ajustes (e talvez um grau leve) podem eliminar dores de cabeça e cansaço já na primeira semana.' };
-    return { key:'high', title:'Alto Risco de Comprometimento', pct: Math.round((score/18)*100), color:'rose',
-      desc:'Atenção: seus sintomas indicam alto risco de problema refrativo não corrigido. É importante fazer o exame nos próximos dias — quanto antes, mais fácil reverter.' };
-  }
-
-  function renderResult(){
-    const score = answers.reduce((s, a, i) => s + (a !== null ? QUESTIONS[i].opts[a].score : 0), 0);
-    const p = profileFor(score);
-    const body = document.getElementById('quizBody');
-    document.getElementById('quizCounter').textContent = 'Resultado do seu Diagnóstico 360°';
-    // fill all progress segments
-    const prog = document.getElementById('quizProgress');
-    prog.innerHTML = '';
-    QUESTIONS.forEach(() => {
-      const seg = document.createElement('div'); seg.className='seg on'; prog.appendChild(seg);
-    });
-
-    const colorMap = {
-      emerald: { ring:'ring-emerald-200',  badge:'bg-emerald-100 text-emerald-700', icon:'🟢' },
-      amber:   { ring:'ring-amber-200',    badge:'bg-amber-100 text-amber-700',     icon:'🟡' },
-      rose:    { ring:'ring-rose-200',     badge:'bg-rose-100 text-rose-700',       icon:'🔴' },
-    };
-    const c = colorMap[p.color];
-
-    body.innerHTML = `
-      <div class="text-center pt-2">
-        <span class="inline-flex items-center gap-2 ${c.badge} text-xs font-extrabold tracking-wider uppercase px-3 py-1.5 rounded-full">${c.icon} Seu perfil</span>
-        <h3 class="font-display font-black text-petroleo text-2xl lg:text-3xl mt-3 leading-tight">${p.title}</h3>
-        <div class="mt-4 max-w-sm mx-auto">
-          <div class="flex items-center justify-between text-xs text-inkSoft mb-1.5">
-            <span>Índice de fadiga visual</span>
-            <span class="font-bold text-petroleo">${p.pct}%</span>
-          </div>
-          <div class="bar-track"><div class="bar-fill" style="width:${p.pct}%"></div></div>
-        </div>
-        <p class="text-inkSoft mt-5 leading-relaxed text-sm lg:text-base max-w-sm mx-auto">${p.desc}</p>
-      </div>
-
-      <div class="mt-6 bg-graybg rounded-2xl p-5 border border-slate-100">
-        <p class="font-display font-extrabold text-petroleo text-base">🎁 Você liberou:</p>
-        <ul class="mt-3 space-y-2 text-sm text-petroleo">
-          <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Exame de vista <strong>GRATUITO</strong> em Camocim</li>
-          <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Óculos de sol com grau de <strong>BRINDE</strong></li>
-          <li class="flex items-center gap-2"><span class="text-emerald-500 font-bold">✓</span> Atendimento prioritário sem fila</li>
-        </ul>
-        <p class="text-xs text-inkSoft mt-4">Toque em <strong>"Falar no WhatsApp"</strong> abaixo para garantir sua vaga (apenas 50 esta semana).</p>
-      </div>
-    `;
-    updateNav();
-  }
-</script>
+<script src="site.js?v=13"></script>
 
 </body>
 </html>
