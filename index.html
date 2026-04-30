@@ -277,10 +277,26 @@
   /* 360Gold variant */
   .gold-stripes { background: repeating-linear-gradient(135deg, rgba(235,191,50,.0) 0 24px, rgba(235,191,50,.06) 24px 25px); }
 
+  /* Hero collage wrapper — mobile centralizado e contido */
+  .hero-img-wrap {
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: 1024px) {
+    .hero-img-wrap {
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+
   /* Cidades — marquee infinito esquerda → direita */
   .cities-mask {
     position: relative;
     overflow: hidden;
+    width: 100%;
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0, #000 6%, #000 94%, transparent 100%);
   }
@@ -376,7 +392,7 @@
   <div id="heroContent" class="relative max-w-7xl mx-auto px-5 lg:px-10 pt-24 lg:pt-36 pb-20 lg:pb-44">
     <!-- Variant A (default): Text left, photo right -->
     <div id="heroVariantA" class="hero-variant grid lg:grid-cols-12 gap-10 items-center">
-      <div class="lg:col-span-6 xl:col-span-6">
+      <div class="lg:col-span-6 xl:col-span-6 min-w-0">
         <div class="reveal inline-flex items-center gap-2 bg-amarelo text-azul-escuro px-4 py-2 rounded-full eyebrow mb-6">
           <span class="w-1.5 h-1.5 rounded-full bg-azul-escuro"></span>
           Um novo conceito de ótica para Camocim
@@ -417,12 +433,12 @@
           </div>
         </div>
       </div>
-      <div class="lg:col-span-6 xl:col-span-6">
-        <div class="hero-collage relative z-20 aspect-[901/922] max-w-[360px] mx-auto lg:max-w-[950px] lg:ml-auto lg:mx-0 reveal scale-in delay-2">
+      <div class="lg:col-span-6 xl:col-span-6 min-w-0">
+        <div class="hero-collage hero-img-wrap relative z-20 aspect-[901/922] reveal scale-in delay-2">
           <div class="absolute inset-0 rounded-[36px] overflow-hidden parallax" data-speed="0.04">
             <img src="assets/homem.png" alt="Atendente da Óticas Olhar 360° em frente à loja em Camocim" class="w-full h-full object-contain" loading="lazy" />
           </div>
-          <div class="absolute z-30 bottom-2 left-2 lg:bottom-4 lg:left-4 w-16 h-16 lg:w-24 lg:h-24 rounded-full bg-amarelo flex items-center justify-center text-azul-escuro shadow-xl cta-pulse">
+          <div class="absolute z-30 -bottom-[32px] left-[24px] lg:-bottom-[48px] lg:left-[66px] w-16 h-16 lg:w-24 lg:h-24 rounded-full bg-amarelo flex items-center justify-center text-azul-escuro shadow-xl cta-pulse">
             <div class="text-center leading-tight">
               <div class="text-2xl font-extrabold">+12</div>
               <div class="text-[10px] uppercase tracking-widest font-extrabold">anos</div>
