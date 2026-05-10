@@ -137,7 +137,8 @@ function openWhatsApp(context){
   const msgs = {
     default: 'Olá! Vim através do site e gostaria de mais informações',
     exame: 'Olá! Gostaria de agendar um exame de vista',
-    depoimentos: 'Olá! Gostaria de falar com um consultor da Olhar 360'
+    depoimentos: 'Olá! Gostaria de falar com um consultor da Olhar 360',
+    lentes: 'Olá! Gostaria de ajuda para escolher a lente ideal para mim'
   };
   const msg = encodeURIComponent(msgs[context] || msgs.default);
   window.open(`https://wa.me/5588992742862?text=${msg}`, '_blank');
