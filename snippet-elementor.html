@@ -1,0 +1,407 @@
+<!-- ============================================================
+     FORMULÁRIO DE AGENDAMENTO — ÓTICAS OLHAR 360
+     Cole este bloco INTEIRO em um widget HTML do Elementor.
+     Não precisa de iframe nem hospedagem externa.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  /* Tudo escopado em .o360-agendar pra não conflitar com o tema/Elementor */
+  .o360-agendar { all: initial; }
+  .o360-agendar * { box-sizing: border-box; }
+  .o360-agendar {
+    --o360-azul-bg: #275989;
+    --o360-azul-claro: #6CA1B0;
+    --o360-amarelo: #EBBF32;
+    --o360-cinza: #F4F6F8;
+    --o360-azul-escuro: #1A3D5C;
+    display: block;
+    width: 100%;
+    font-family: "Saira", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--o360-azul-escuro);
+    -webkit-font-smoothing: antialiased;
+    padding: 24px 12px;
+  }
+  .o360-agendar .o360-card {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow:
+      0 30px 60px -20px rgba(26, 61, 92, 0.35),
+      0 10px 30px -10px rgba(26, 61, 92, 0.18);
+    padding: 36px 36px 32px;
+    position: relative;
+  }
+  .o360-agendar .o360-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--o360-azul-bg);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .o360-agendar .o360-headline {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--o360-azul-escuro);
+    margin: 0 0 12px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+  }
+  .o360-agendar .o360-sub {
+    font-size: 14.5px;
+    color: #5a7286;
+    margin: 0 0 26px;
+    line-height: 1.5;
+  }
+  .o360-agendar .o360-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: var(--o360-azul-bg);
+    background: var(--o360-cinza);
+    border-radius: 10px;
+    padding: 11px 14px;
+    margin: -2px 0 0;
+    font-weight: 600;
+  }
+  .o360-agendar .o360-note svg { flex: none; }
+  .o360-agendar form { display: flex; flex-direction: column; gap: 18px; margin: 0; }
+  .o360-agendar .o360-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .o360-agendar .o360-field { display: flex; flex-direction: column; }
+  .o360-agendar label {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--o360-azul-bg);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .o360-agendar input,
+  .o360-agendar select {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1.5px solid #E2E8F0;
+    background: #fff;
+    font-size: 15px;
+    color: var(--o360-azul-escuro);
+    font-family: inherit;
+    transition: border-color .25s, box-shadow .25s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .o360-agendar input::placeholder { color: #9aa9b7; }
+  .o360-agendar input:focus,
+  .o360-agendar select:focus {
+    outline: none;
+    border-color: var(--o360-azul-bg);
+    box-shadow: 0 0 0 3px rgba(39, 89, 137, 0.12);
+  }
+  .o360-agendar select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23275989' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 42px;
+    cursor: pointer;
+  }
+  .o360-agendar input[type="text"][readonly] { cursor: pointer; background: #fff; }
+  .o360-agendar .o360-btn {
+    margin-top: 8px;
+    background: var(--o360-amarelo);
+    color: var(--o360-azul-escuro);
+    border: none;
+    border-radius: 14px;
+    padding: 18px 24px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    transition: background .25s, box-shadow .25s, transform .15s;
+    box-shadow: 0 14px 30px -12px rgba(235, 191, 50, 0.6);
+    width: 100%;
+  }
+  .o360-agendar .o360-btn:hover {
+    background: #fac93f;
+    box-shadow: 0 18px 40px -12px rgba(235, 191, 50, 0.75);
+  }
+  .o360-agendar .o360-btn:active { transform: translateY(1px); }
+  .o360-agendar .o360-arrow {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: var(--o360-azul-bg);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .25s ease;
+  }
+  .o360-agendar .o360-btn:hover .o360-arrow { transform: translateX(3px); }
+  @media (max-width: 480px) {
+    .o360-agendar .o360-card { padding: 28px 22px 24px; border-radius: 20px; }
+    .o360-agendar .o360-row { grid-template-columns: 1fr; }
+    .o360-agendar .o360-headline { font-size: 26px; }
+  }
+
+  /* --- Tema do calendário flatpickr (classe o360-fp aplicada no onReady).
+     O calendário é anexado ao <body>, fora de .o360-agendar — por isso
+     estes seletores não são escopados. A classe extra .o360-fp dá
+     especificidade pra sobrescrever o CSS do CDN. --- */
+  .flatpickr-calendar.o360-fp {
+    font-family: "Saira", system-ui, -apple-system, sans-serif;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 24px 50px -16px rgba(26, 61, 92, 0.4);
+    padding: 4px;
+  }
+  .flatpickr-calendar.o360-fp.arrowTop:before,
+  .flatpickr-calendar.o360-fp.arrowTop:after { border-bottom-color: #fff; }
+  .flatpickr-calendar.o360-fp.arrowBottom:before,
+  .flatpickr-calendar.o360-fp.arrowBottom:after { border-top-color: #fff; }
+  .flatpickr-calendar.o360-fp .flatpickr-months .flatpickr-month,
+  .flatpickr-calendar.o360-fp .flatpickr-current-month .flatpickr-monthDropdown-months,
+  .flatpickr-calendar.o360-fp .flatpickr-current-month input.cur-year {
+    color: #1A3D5C;
+    fill: #1A3D5C;
+    font-weight: 700;
+  }
+  .flatpickr-calendar.o360-fp .flatpickr-prev-month svg,
+  .flatpickr-calendar.o360-fp .flatpickr-next-month svg { fill: #275989; }
+  .flatpickr-calendar.o360-fp .flatpickr-prev-month:hover svg,
+  .flatpickr-calendar.o360-fp .flatpickr-next-month:hover svg { fill: #EBBF32; }
+  .flatpickr-calendar.o360-fp span.flatpickr-weekday {
+    color: #275989;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  .flatpickr-calendar.o360-fp .flatpickr-day {
+    color: #1A3D5C;
+    border-radius: 9px;
+    font-weight: 500;
+  }
+  .flatpickr-calendar.o360-fp .flatpickr-day:hover,
+  .flatpickr-calendar.o360-fp .flatpickr-day:focus {
+    background: #F4F6F8;
+    border-color: #F4F6F8;
+  }
+  .flatpickr-calendar.o360-fp .flatpickr-day.today {
+    border-color: #EBBF32;
+  }
+  .flatpickr-calendar.o360-fp .flatpickr-day.today:hover {
+    background: #EBBF32;
+    border-color: #EBBF32;
+    color: #1A3D5C;
+  }
+  .flatpickr-calendar.o360-fp .flatpickr-day.selected,
+  .flatpickr-calendar.o360-fp .flatpickr-day.selected:hover {
+    background: #275989;
+    border-color: #275989;
+    color: #fff;
+    box-shadow: 0 6px 14px -6px rgba(39, 89, 137, 0.7);
+  }
+  .flatpickr-calendar.o360-fp .flatpickr-day.flatpickr-disabled,
+  .flatpickr-calendar.o360-fp .flatpickr-day.flatpickr-disabled:hover,
+  .flatpickr-calendar.o360-fp .flatpickr-day.prevMonthDay,
+  .flatpickr-calendar.o360-fp .flatpickr-day.nextMonthDay {
+    color: #c3ccd5;
+    background: transparent;
+    border-color: transparent;
+  }
+  .flatpickr-calendar.o360-fp .flatpickr-day.flatpickr-disabled {
+    text-decoration: line-through;
+    text-decoration-color: #dde3e9;
+    cursor: not-allowed;
+  }
+</style>
+
+<div class="o360-agendar">
+  <div class="o360-card">
+    <p class="o360-eyebrow">Agendar exame</p>
+    <h2 class="o360-headline">Vamos cuidar da sua visão.</h2>
+    <p class="o360-sub">Preencha e enviamos sua solicitação direto pelo WhatsApp.</p>
+
+    <form id="o360AgendaForm" novalidate>
+      <div class="o360-field">
+        <label for="o360-nome">Nome</label>
+        <input type="text" id="o360-nome" name="nome" placeholder="Seu nome completo" required autocomplete="name" />
+      </div>
+      <div class="o360-field">
+        <label for="o360-telefone">Telefone</label>
+        <input type="tel" id="o360-telefone" name="telefone" placeholder="(88) 9 0000-0000" required autocomplete="tel" inputmode="tel" />
+      </div>
+      <div class="o360-row">
+        <div class="o360-field">
+          <label for="o360-data">Data</label>
+          <input type="text" id="o360-data" name="data" placeholder="DD/MM/AAAA" required readonly autocomplete="off" />
+        </div>
+        <div class="o360-field">
+          <label for="o360-hora">Hora</label>
+          <select id="o360-hora" name="hora" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="08:00">08:00</option>
+            <option value="08:15">08:15</option>
+            <option value="08:30">08:30</option>
+            <option value="08:45">08:45</option>
+            <option value="09:00">09:00</option>
+            <option value="09:15">09:15</option>
+            <option value="09:30">09:30</option>
+            <option value="09:45">09:45</option>
+            <option value="10:00">10:00</option>
+            <option value="10:15">10:15</option>
+            <option value="10:30">10:30</option>
+            <option value="10:45">10:45</option>
+            <option value="11:00">11:00</option>
+            <option value="11:15">11:15</option>
+            <option value="11:30">11:30</option>
+            <option value="11:45">11:45</option>
+            <option value="12:00">12:00</option>
+            <option value="12:15">12:15</option>
+            <option value="12:30">12:30</option>
+            <option value="12:45">12:45</option>
+            <option value="13:00">13:00</option>
+            <option value="13:15">13:15</option>
+            <option value="13:30">13:30</option>
+            <option value="13:45">13:45</option>
+            <option value="14:00">14:00</option>
+            <option value="14:15">14:15</option>
+            <option value="14:30">14:30</option>
+            <option value="14:45">14:45</option>
+          </select>
+        </div>
+      </div>
+      <p class="o360-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/>
+        </svg>
+        Atendimento às quartas e aos sábados, das 8h às 15h.
+      </p>
+      <button type="submit" class="o360-btn">
+        Enviar pelo WhatsApp
+        <span class="o360-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Guard só protege os listeners do document — NÃO impede o form de
+  // funcionar quando o Elementor injeta o conteúdo (ex.: ao abrir o pop-up).
+  if (window.__o360AgendaReady) return;
+  window.__o360AgendaReady = true;
+
+  var WHATSAPP_NUMBER = '558892129854';
+
+  function maskPhone(input) {
+    var v = input.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 10)      v = v.replace(/^(\d{2})(\d{1})(\d{4})(\d{0,4}).*/, '($1) $2 $3-$4');
+    else if (v.length > 6)  v = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+    else if (v.length > 2)  v = v.replace(/^(\d{2})(\d{0,5}).*/, '($1) $2');
+    else if (v.length > 0)  v = v.replace(/^(\d{0,2}).*/, '($1');
+    input.value = v;
+  }
+
+  // --- Regras de disponibilidade -------------------------------------
+  // Dias atendidos: quarta(3) e sábado(6).
+  var DIAS_OK = { 3: true, 6: true };
+
+  // Delegação no document: o evento "submit"/"input" faz bubbling, então
+  // funciona mesmo que o Elementor injete o formulário só depois (pop-up,
+  // lazy load, etc.) e mesmo que o snippet apareça duplicado na página.
+  document.addEventListener('input', function(e){
+    var t = e.target;
+    if (t && t.id === 'o360-telefone') maskPhone(t);
+  }, false);
+
+  // --- Calendário flatpickr: deixa os dias que não são quarta/sábado
+  // cinza e não clicáveis. Sem altInput pra não duplicar o campo no mobile.
+  function initFlatpickr(input) {
+    if (!input || input._flatpickr || typeof window.flatpickr !== 'function') return;
+    window.flatpickr(input, {
+      dateFormat: 'd/m/Y',
+      minDate: 'today',
+      allowInput: false,
+      disableMobile: true,
+      locale: (window.flatpickr.l10ns && window.flatpickr.l10ns.pt) || 'default',
+      disable: [ function(date){ return !DIAS_OK[date.getDay()]; } ],
+      onReady: function(sel, str, inst){ inst.calendarContainer.classList.add('o360-fp'); }
+    });
+  }
+
+  function scanForDate() {
+    var inputs = document.querySelectorAll('#o360-data');
+    for (var i = 0; i < inputs.length; i++) initFlatpickr(inputs[i]);
+  }
+
+  function loadAsset(tag, attrs, cb) {
+    var el = document.createElement(tag);
+    for (var k in attrs) el[k] = attrs[k];
+    if (cb) { el.onload = cb; el.onerror = cb; }
+    document.head.appendChild(el);
+  }
+
+  loadAsset('link', { rel: 'stylesheet',
+    href: 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css' });
+  loadAsset('script', { src: 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js' }, function(){
+    loadAsset('script', { src: 'https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js' }, function(){
+      scanForDate();
+      // Reescaneia quando o Elementor injeta o form depois (ex.: pop-up).
+      if (window.MutationObserver && document.body) {
+        new MutationObserver(scanForDate).observe(document.body, { childList: true, subtree: true });
+      }
+    });
+  });
+
+  document.addEventListener('submit', function(e){
+    var form = e.target;
+    if (!form || form.id !== 'o360AgendaForm') return;
+    e.preventDefault();
+
+    function val(sel){ var el = form.querySelector(sel); return el ? el.value : ''; }
+    var nome     = val('#o360-nome').trim();
+    var telefone = val('#o360-telefone').trim();
+    var data     = val('#o360-data').trim();
+    var hora     = val('#o360-hora');
+
+    if (!nome || !telefone || !data || !hora) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    var msg = 'Olá! Gostaria de agendar meu exame de vista:\n'
+            + 'Nome: ' + nome + '\n'
+            + 'Telefone: ' + telefone + '\n'
+            + 'Data: ' + data + '\n'
+            + 'Hora: ' + hora;
+
+    var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank');
+  }, false);
+})();
+</script>
+
+<!-- ============================================================
+     FIM DO FORMULÁRIO
+     ============================================================ -->
